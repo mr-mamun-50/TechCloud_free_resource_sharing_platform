@@ -34,7 +34,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         // var name = $(this).data("name");
         event.preventDefault();
         swal({
-                title: `Are you sure you want to delete this row?`,
+                title: "Are you want to delete this row?",
                 text: "Once deleted, you will not be able to recover this category!",
                 icon: "warning",
                 buttons: true,
