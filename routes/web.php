@@ -48,4 +48,7 @@ Route::post('/admin/login/store', [AuthenticatedSessionController::class, 'store
 Route::get('/admin', [HomeController::class, 'index'])->name('admin.dashboard')->middleware('admin');
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
+Route::get('/admin/password/change', [HomeController::class, 'password_change'])->name('admin.password.change')->middleware('admin');
+Route::post('/admin/password/update', [HomeController::class, 'password_update'])->name('admin.password.update')->middleware('admin');
+
 Route::resource('admin/category', CategoryController::class);

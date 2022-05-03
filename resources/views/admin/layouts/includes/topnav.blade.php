@@ -105,30 +105,22 @@
                     </a>
                     <ul class="show-notification profile-notification">
                         <li>
-                            <a href="#!">
-                                <i class="ti-settings"></i> Settings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="user-profile.html">
+                            <a href="">
                                 <i class="ti-user"></i> Profile
                             </a>
                         </li>
-
                         <li>
-                            <a href="auth-lock-screen.html">
-                                <i class="ti-lock"></i> Lock Screen
+                            <a href=" {{ route('admin.password.change') }} ">
+                                <i class="ti-lock"></i> Change Password
                             </a>
                         </li>
                         <li>
                             <!-- Authentication -->
-                            <form method="POST" action="{{ route('admin.logout') }}">
+                            <form method="POST" action="{{ route('admin.logout') }}" name="logoutform">
                                 @csrf
 
-                                <a href="route('admin.logout')"
-                                    onclick="event.preventDefault(); this.closest('form').submit();">
-                                    <i class="ti-layout-sidebar-left"></i> Logout
-                                </a>
+                                <button class="logout btn bg-transparent p-0" type="submit"><i
+                                        class="bi bi-box-arrow-right"></i> Logout</button>
                             </form>
                         </li>
                     </ul>

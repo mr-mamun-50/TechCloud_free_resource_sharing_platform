@@ -26,26 +26,29 @@
 integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Sweetalert js -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     $('.delete').click(function(event) {
         var form = $(this).closest("form");
-        // var name = $(this).data("name");
         event.preventDefault();
-        swal({
-                title: "Are you want to delete this row?",
-                text: "Once deleted, you will not be able to recover this category!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    form.submit();
-                }
-            });
+        Swal.fire({
+            title: 'Do you want to delete this row?',
+            text: "Once deleted, you will not be able to recover this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit()
+            }
+        })
     });
+
     // $(document).on("click", ".delete", function(e) {
     //     e.preventDefault();
     //     var link = $(this).attr("href");
@@ -64,6 +67,27 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     //             }
     //         });
     // });
+</script>
+<script>
+    $('.logout').click(function(event) {
+        var form = $(this).closest("form");
+        event.preventDefault();
+        Swal.fire({
+            title: 'Do you want to log out now?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit()
+            }
+        })
+    });
 </script>
 <script>
     @if (Session::has('message'))
