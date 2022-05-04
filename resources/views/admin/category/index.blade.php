@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
 
-            <table class="table table-bordered table-responsive">
+            <table class="table table-bordered table-striped" id="example1">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -30,14 +30,14 @@
                             <td> {{ $row->category_description }} </td>
                             <td> {{ $row->category_slug }} </td>
                             <td class="d-flex">
-                                <a href=" {{ route('category.edit', $row->id) }} " class="btn btn-primary mr-1 p-2"><i
-                                        class="far fa-edit"></i></a>
+                                <a href=" {{ route('category.edit', $row->id) }} "
+                                    class="btn btn-primary mr-1 pt-1 pl-1 pr-0 pb-0"><i class="bi bi-pencil-square"></i></a>
 
                                 <form action=" {{ route('category.destroy', $row->id) }} " method="post">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger p-2 delete"><i
-                                            class="far fa-trash-alt"></i></button>
+                                    <button type="submit" class="btn btn-danger delete pt-1 pl-1 pr-0 pb-0"><i
+                                            class="bi bi-trash"></i></button>
                                 </form>
                                 {{-- <a href=" {{ route('category.destroy', $row->id) }} " class="btn btn-danger p-2 "><i
                                         class="far fa-trash-alt"></i></a> --}}

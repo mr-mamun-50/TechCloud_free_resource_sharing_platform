@@ -28,6 +28,19 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Sweetalert js -->
 {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- DataTables  & Plugins -->
+<script src="{{ asset('adm') }}/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/jszip/jszip.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="{{ asset('adm') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="{{ asset('adm') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <script>
     $('.delete').click(function(event) {
@@ -107,4 +120,24 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         break;
         }
     @endif
+</script>
+<!-- Page specific script -->
+<script>
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
 </script>
