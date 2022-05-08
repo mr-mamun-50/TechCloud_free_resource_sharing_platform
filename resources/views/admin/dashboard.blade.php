@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
-
+@section('title')
+    Dashboard
+@endsection
 @section('content')
     <div class="page-body">
         <div class="row">

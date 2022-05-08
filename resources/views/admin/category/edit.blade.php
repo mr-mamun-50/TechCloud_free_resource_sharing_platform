@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
-
+@section('title')
+    Edit Category
+@endsection
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-6">

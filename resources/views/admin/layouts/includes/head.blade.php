@@ -1,5 +1,5 @@
 <head>
-    <title> Admin | Tech Cloud </title>
+    <title> @yield('title') | Admin | TechCloud </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -38,4 +38,6 @@
     <link rel="stylesheet" href="{{ asset('adm') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('adm') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('adm') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('adm') }}/plugins/summernote/summernote-bs4.min.css">
 </head>

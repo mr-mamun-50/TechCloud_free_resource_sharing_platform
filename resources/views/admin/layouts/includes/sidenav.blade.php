@@ -2,7 +2,7 @@
     <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
     <div class="pcoded-inner-navbar main-menu">
 
-        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
+        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Core</div>
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
                 <a href=" {{ route('admin.dashboard') }} ">
@@ -13,7 +13,7 @@
             </li>
             <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)">
-                    <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                    <span class="pcoded-micon"><i class="bi bi-tag"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Categories</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
@@ -35,18 +35,43 @@
                     </li>
                 </ul>
             </li>
-        </ul>
-        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms &amp; Tables
-        </div>
-        <ul class="pcoded-item pcoded-left-item">
-            <li>
-                <a href="form-elements-component.html">
-                    <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                    <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form
-                        Components</span>
+            <li class="">
+                <a href=" {{ route('subcategory.index') }} ">
+                    <span class="pcoded-micon"><i class="bi bi-tags"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.dash.main">Subcategories</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
+        </ul>
+        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Tutorials
+        </div>
+        <ul class="pcoded-item pcoded-left-item">
+
+            <li class="pcoded-hasmenu">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="bi bi-menu-button-wide-fill"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Articles</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href=" {{ route('articles.create') }} ">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Add Article</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href=" {{ route('articles.index') }} ">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Manage
+                                Article</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li>
                 <a href="bs-basic-table.html">
                     <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>

@@ -50,7 +50,7 @@ class CategoryController extends Controller
         ];
         DB::table('categories')->insert($data);
 
-        $notify = ['message'=>'New category successfully added !', 'alert-type'=>'success'];
+        $notify = ['message'=>'New category successfully added!', 'alert-type'=>'success'];
         return redirect()->back()->with($notify);
     }
 
@@ -98,7 +98,7 @@ class CategoryController extends Controller
         ];
         DB::table('categories')->where('id', $id)->update($data);
 
-        $notify = ['message'=>'Category successfully updated !', 'alert-type'=>'success'];
+        $notify = ['message'=>'Category successfully updated!', 'alert-type'=>'success'];
         return redirect()->route('category.index')->with($notify);
     }
 
@@ -112,7 +112,7 @@ class CategoryController extends Controller
     {
         DB::table('categories')->where('id', $id)->delete();
 
-        $notify = ['message'=>'Category deleted successfully !', 'alert-type'=>'success'];
+        $notify = ['message'=>'Category deleted successfully!', 'alert-type'=>'success'];
         return redirect()->back()->with($notify);
     }
 }

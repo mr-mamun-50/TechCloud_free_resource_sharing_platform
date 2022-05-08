@@ -26,7 +26,6 @@
 integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Sweetalert js -->
-{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('adm') }}/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -41,6 +40,8 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ asset('adm') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{ asset('adm') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{ asset('adm') }}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Summernote -->
+<script src="{{ asset('adm') }}/plugins/summernote/summernote-bs4.min.js"></script>
 
 <script>
     $('.delete').click(function(event) {
@@ -139,5 +140,13 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             "autoWidth": false,
             "responsive": true,
         });
+    });
+</script>
+<!-- Summernote script -->
+<script>
+    $('.summernote').summernote({
+        placeholder: 'Enter text here...',
+        tabsize: 4,
+        height: 200
     });
 </script>
