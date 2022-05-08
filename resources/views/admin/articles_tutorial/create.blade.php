@@ -72,7 +72,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="">Thumbnail</label>
+                        <label for="article_thumb">Thumbnail</label>
                         <input type="file" name="article_thumb" class="form-control" placeholder="">
                     </div>
                     <div class="form-check">

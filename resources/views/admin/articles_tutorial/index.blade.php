@@ -18,19 +18,27 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Category Name</th>
-                        <th>Subcategory Name</th>
-                        <th>Subcategory Slug</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Username</th>
+                        <th>Title</th>
+                        <th>Thumbnail</th>
+                        <th>Date</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td class="d-flex">
                             <a href="  " class="btn btn-primary mr-1 pt-1 pl-1 pr-0 pb-0"><i
                                     class="bi bi-pencil-square"></i></a>
@@ -96,15 +104,15 @@
                                 </select>
                             </div>
                             {{-- <div class="form-group">
-                                <label for="subcategory_id">Select Subcategory</label>
-                                <select name="subcategory_id" class="form-control" id="">
-                                    <option value="  ">  </option>
-                                </select>
-                            </div> --}}
+                                    <label for="subcategory_id">Select Subcategory</label>
+                                    <select name="subcategory_id" class="form-control" id="">
+                                        <option value="  ">  </option>
+                                    </select>
+                                </div> --}}
                             <div class="form-group">
                                 <label for="article_description">Description</label>
-                                <textarea name="article_description" class="form-control @error('article_description') is-invalid @enderror" cols="30"
-                                    rows="10" id="summernote"> {{ old('article_description') }} </textarea>
+                                <textarea name="article_description" class="form-control @error('article_description') is-invalid @enderror " cols="30"
+                                    rows="7"> {{ old('article_description') }} </textarea>
                                 @error('article_description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -122,7 +130,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Thumbnail</label>
+                                <label for="article_thumb">Thumbnail</label>
                                 <input type="file" name="article_thumb" class="form-control" placeholder="">
                             </div>
                             <div class="form-check">

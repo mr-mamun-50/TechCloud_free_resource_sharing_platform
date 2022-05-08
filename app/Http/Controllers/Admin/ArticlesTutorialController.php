@@ -43,12 +43,12 @@ class ArticlesTutorialController extends Controller
      */
     public function store(Request $request)
     {
-        // $validated = $request->validate([
-        //     'article_title' => 'required',
-        //     'subcategory_id' => 'required',
-        //     'article_description' => 'required',
-        //     'article_tags' => 'required',
-        // ]);
+        $validated = $request->validate([
+            'article_title' => 'required',
+            'subcategory_id' => 'required',
+            'article_description' => 'required',
+            'article_tags' => 'required',
+        ]);
         $title_slug = Str::of($request->article_title)->slug('-');
         $data = [
             'title' => $request->article_title,
@@ -62,19 +62,22 @@ class ArticlesTutorialController extends Controller
             'tags' => $request->article_tags,
             'status' => $request->article_status,
         ];
-        $thumb = $request->article_thumb;
-        if($thumb) {
-            $thumbname = $title_slug.'.'.$thumb->getClientOriginalExtension();
-            Image::make($thumb)->resize(600, 360)->save("public/media/".$thumbname);
-            $data['image'] = "public/media/".$thumbname;
 
-            DB::table('articles_tutorial')->insert($data);
+        $image = $request->file('article_thumb');
+        $input['article_thumb'] = time().'-'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
 
-            $notify = ['message'=>'New article successfully added!', 'alert-type'=>'success'];
-            return redirect()->back()->with($notify);
-        }
-        // return  response()->json($data);
+        $destinationPath = public_path('images/articles');
+        $imgFile = Image::make($image->getRealPath());
+        $imgFile->resize(600, 360)->save($destinationPath.'/'.$input['article_thumb']);
+        // $destinationPath = public_path('uploads');
+        // $image->move($destinationPath, $input['article_thumb']);
 
+        $data['image'] = $input['article_thumb'];
+
+        DB::table('articles_tutorial')->insert($data);
+
+        $notify = ['message'=>'New article successfully added!', 'alert-type'=>'success'];
+        return redirect()->back()->with($notify);
     }
 
     /**
