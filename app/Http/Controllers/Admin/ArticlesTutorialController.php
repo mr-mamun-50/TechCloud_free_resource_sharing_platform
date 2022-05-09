@@ -8,6 +8,7 @@ use DB;
 use Illuminate\Support\Str;
 use Auth;
 use Image;
+use File;
 
 class ArticlesTutorialController extends Controller
 {
@@ -18,9 +19,15 @@ class ArticlesTutorialController extends Controller
      */
     public function index()
     {
+        $articles = DB::table('articles_tutorial')
+                    ->leftjoin('categories', 'articles_tutorial.category_id', 'categories.id')
+                    ->leftjoin('subcategories', 'articles_tutorial.subcategory_id', 'subcategories.id')
+                    ->select('articles_tutorial.*', 'categories.category_name', 'subcategories.subcategory_name')
+                    ->get();
+
         $category = DB::table('categories')->get();
 
-        return view('admin.articles_tutorial.index', compact('category'));
+        return view('admin.articles_tutorial.index', compact('articles', 'category'));
     }
 
     /**
@@ -64,7 +71,7 @@ class ArticlesTutorialController extends Controller
         ];
 
         $image = $request->file('article_thumb');
-        $input['article_thumb'] = time().'-'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
+        $input['article_thumb'] = time().'-'.$image->getClientOriginalName();
 
         $destinationPath = public_path('images/articles');
         $imgFile = Image::make($image->getRealPath());
@@ -122,6 +129,13 @@ class ArticlesTutorialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = DB::table('articles_tutorial')->where('id', $id)->first();
+        if(File::exists(public_path('images/articles/'). $article->image)) {
+            File::delete(public_path('images/articles/'). $article->image);
+        }
+        DB::table('articles_tutorial')->where('id',$id)->delete();
+
+        $notify = ['message'=>'Article successfully deleted!', 'alert-type'=>'success'];
+        return redirect()->back()->with($notify);
     }
 }

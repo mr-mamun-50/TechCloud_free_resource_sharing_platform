@@ -17,43 +17,48 @@
             <table class="table table-bordered table-striped" id="example1">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>SL</th>
                         <th>Category</th>
                         <th>Subcategory</th>
-                        <th>Username</th>
-                        <th>Title</th>
+                        <th>Author & Time</th>
+                        <th>Title & Status</th>
                         <th>Thumbnail</th>
-                        <th>Date</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($articles as $index => $item)
+                        <tr>
+                            <td> {{ ++$index }} </td>
+                            <td> {{ $item->category_name }} </td>
+                            <td> {{ $item->subcategory_name }} </td>
+                            <td> {{ $item->username }} <div class="text-muted"> {{ $item->post_date }} </div>
+                            </td>
+                            <td> {{ $item->title }} <br>
+                                @if ($item->status)
+                                    <span class="badge badge-success">Public</span>
+                                @else
+                                    <span class="badge badge-warning">Private</span>
+                                @endif
+                            </td>
+                            <td> <img src="{{ asset('images/articles') . '/' . $item->image }}" alt="Thumbnail"
+                                    style="width: 100px"> </td>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="d-flex">
-                            <a href="  " class="btn btn-primary mr-1 pt-1 pl-1 pr-0 pb-0"><i
-                                    class="bi bi-pencil-square"></i></a>
+                            <td class="d-flex justify-content-center">
+                                <a href="  " class="btn btn-primary mr-1 pt-1 pl-1 pr-0 pb-0"><i
+                                        class="bi bi-pencil-square"></i></a>
 
-                            <form action="  " method="post">
-                                @csrf
-                                <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="btn btn-danger delete pt-1 pl-1 pr-0 pb-0"><i
-                                        class="bi bi-trash"></i></button>
-                            </form>
-                            {{-- <a href=" {{ route('category.destroy', $item->id) }} " class="btn btn-danger p-2 "><i
+                                <form action=" {{ route('articles.destroy', $item->id) }} " method="post">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger delete pt-1 pl-1 pr-0 pb-0"><i
+                                            class="bi bi-trash"></i></button>
+                                </form>
+                                {{-- <a href=" {{ route('category.destroy', $item->id) }} " class="btn btn-danger p-2 "><i
                                         class="far fa-trash-alt"></i></a> --}}
-                        </td>
-                    </tr>
-
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

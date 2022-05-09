@@ -40,4 +40,9 @@
     <link rel="stylesheet" href="{{ asset('adm') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('adm') }}/plugins/summernote/summernote-bs4.min.css">
+
+    <style>
+
+
+    </style>
 </head>
