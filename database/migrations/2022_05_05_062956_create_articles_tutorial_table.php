@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('post_date')->nullable();
+            $table->string('update_date')->nullable();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->text('tags')->nullable();

@@ -71,7 +71,7 @@ class ArticlesTutorialController extends Controller
         ];
 
         $image = $request->file('article_thumb');
-        $input['article_thumb'] = time().'-'.$image->getClientOriginalName();
+        $input['article_thumb'] = time().'-'.$title_slug.'.'.$image->getClientOriginalExtension();
 
         $destinationPath = public_path('images/articles');
         $imgFile = Image::make($image->getRealPath());
@@ -106,7 +106,10 @@ class ArticlesTutorialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = DB::table('categories')->get();
+        $article = DB::table('articles_tutorial')->where('id', $id)->first();
+
+        return view('admin.articles_tutorial.edit', compact('category', 'article'));
     }
 
     /**
@@ -118,7 +121,51 @@ class ArticlesTutorialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'article_title' => 'required',
+            'subcategory_id' => 'required',
+            'article_description' => 'required',
+            'article_tags' => 'required',
+        ]);
+        $title_slug = Str::of($request->article_title)->slug('-');
+        $data = [
+            'title' => $request->article_title,
+            'slug' => $title_slug,
+            'category_id' => DB::table('subcategories')->where('id', $request->subcategory_id)->first()->category_id,
+            'subcategory_id' => $request->subcategory_id,
+            'user_id' => Auth::guard('admin')->user()->id,
+            'username' => Auth::guard('admin')->user()->name,
+            'description' => $request->article_description,
+            'update_date' => now('6.0').date(''),
+            'tags' => $request->article_tags,
+            'status' => $request->article_status,
+        ];
+
+        if($request->article_thumb) {
+
+            if(File::exists(public_path('images/articles/'). $request->old_thumb)) {
+                File::delete(public_path('images/articles/'). $request->old_thumb);
+            }
+
+            $image = $request->file('article_thumb');
+            $input['article_thumb'] = time().'-'.$title_slug.'.'.$image->getClientOriginalExtension();
+
+            $destinationPath = public_path('images/articles');
+            $imgFile = Image::make($image->getRealPath());
+            $imgFile->resize(600, 360)->save($destinationPath.'/'.$input['article_thumb']);
+            // $destinationPath = public_path('uploads');
+            // $image->move($destinationPath, $input['article_thumb']);
+
+            $data['image'] = $input['article_thumb'];
+        }
+        else {
+            $data['image'] = $request->old_thumb;
+        }
+
+        DB::table('articles_tutorial')->where('id', $id)->update($data);
+
+        $notify = ['message'=>'Article successfully updated!', 'alert-type'=>'success'];
+        return redirect()->route('articles.index')->with($notify);
     }
 
     /**
