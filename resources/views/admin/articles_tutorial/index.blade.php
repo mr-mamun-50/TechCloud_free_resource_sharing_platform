@@ -34,10 +34,10 @@
                             <td> {{ $item->username }}
                                 <div class="text-muted">
                                     <small><i>Created:</i>
-                                        {{ date('d F, Y | h:m A', strtotime($item->post_date)) }}</small>
+                                        {{ date('d F, Y | h:i A', strtotime($item->post_date)) }}</small>
                                     @if ($item->update_date)
                                         <br> <small><i>Updated:</i>
-                                            {{ date('d F, Y | h:m A', strtotime($item->update_date)) }}</small>
+                                            {{ date('d F, Y | h:i A', strtotime($item->update_date)) }}</small>
                                     @endif
                                 </div>
                             </td>
@@ -99,10 +99,10 @@
                                             </div>
                                             <div>
                                                 <small><i>Created:</i>
-                                                    {{ date('d F, Y | h:m A', strtotime($item->post_date)) }}</small>
+                                                    {{ date('d F, Y | h:i A', strtotime($item->post_date)) }}</small>
                                                 @if ($item->update_date)
                                                     <br> <small><i>Updated:</i>
-                                                        {{ date('d F, Y | h:m A', strtotime($item->update_date)) }}</small>
+                                                        {{ date('d F, Y | h:i A', strtotime($item->update_date)) }}</small>
                                                 @endif
                                             </div>
                                         </div>
