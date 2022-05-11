@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\ArticlesTutorialController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
