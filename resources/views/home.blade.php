@@ -129,11 +129,11 @@
                             <h4>John Doe</h4>
                             <p>Founder & Director</p>
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -145,11 +145,11 @@
                             <h4>John Doe</h4>
                             <p>Founder & Director</p>
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -161,11 +161,11 @@
                             <h4>John Doe</h4>
                             <p>Founder & Director</p>
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -177,11 +177,11 @@
                             <h4>John Doe</h4>
                             <p>Founder & Director</p>
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -314,7 +314,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="fa fa-skyatlas"></i></a>
+                        <a href="#"><i class="fab fa-skyatlas"></i></a>
                         <h2>RESPONSIVE DESIGN</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>
@@ -335,21 +335,21 @@
                 </div>
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="fa fa-diamond"></i></a>
+                        <a href="#"><i class="far fa-gem"></i></a>
                         <h2>RESPONSIVE DESIGN</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="fa fa-wordpress"></i></a>
+                        <a href="#"><i class="fab fa-wordpress"></i></a>
                         <h2>RESPONSIVE DESIGN</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="fa fa-forumbee"></i></a>
+                        <a href="#"><i class="fab fa-forumbee"></i></a>
                         <h2>RESPONSIVE DESIGN</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>
@@ -363,7 +363,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="fa fa-foursquare"></i></a>
+                        <a href="#"><i class="fab fa-foursquare"></i></a>
                         <h2>RESPONSIVE DESIGN</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>

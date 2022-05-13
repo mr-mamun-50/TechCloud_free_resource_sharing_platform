@@ -34,7 +34,7 @@
                 <div class="latest-tweet">
                     <div class="media">
                         <div class="media-left">
-                            <i class="fa fa-twitter fa-2x media-object"></i>
+                            <i class="fab fa-twitter fa-2x media-object"></i>
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">About 15 days ago</h4>
@@ -135,8 +135,11 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="copyright">
-                    Copyright © 2014. All Rights Reserved.Design and Developed by <a
-                        href="http://www.themefisher.com">Themefisher</a>
+                    Copyright ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>. All Rights Reserved. Design and Developed by
+                    <a href="https://github.com/mr-mamun-50" target="blank"><b>M R Mamun</b></a>
                 </div>
             </div>
 
@@ -144,8 +147,8 @@
                 <div class="copyright-menu pull-right">
                     <ul>
                         <li><a href="#" class="active">Home</a></li>
-                        <li><a href="#">Sample Site</a></li>
-                        <li><a href="#">getbootstrap.com</a></li>
+                        <li><a href="#">Softwares</a></li>
+                        <li><a href="#">Tutorials</a></li>
                     </ul>
                 </div>
             </div>

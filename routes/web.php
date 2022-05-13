@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\ArticlesTutorialController;
-
+use App\Http\Controllers\TutorialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +28,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/tutorials/article', [TutorialController::class, 'article_index'])->name('tutorials.article');
 
 
 

@@ -53,7 +53,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
 
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">TechCloud</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -69,7 +69,8 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href=" {{ url('/') }} ">Home <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Softwares</a>
@@ -78,14 +79,14 @@
                         <a class="nav-link" href="#">Designs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tutorials</a>
+                        <a class="nav-link" href=" {{ route('tutorials.article') }} ">Tutorials</a>
                     </li>
                     @if (Route::has('login'))
                         @auth
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->name }}
+                                    <div class="badge badge-pill badge-secondary">{{ Auth::user()->name }}</div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">Change password</a>

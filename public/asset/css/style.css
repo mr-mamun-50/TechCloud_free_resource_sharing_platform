@@ -179,7 +179,7 @@ header {
     display: inline-block;
     padding: 5px 15px;
     /* //font-size: 18px; */
-    line-height: 32px;
+    /* line-height: 32px; */
     border-left: 1px solid #f2f2f2;
 }
 
@@ -196,10 +196,10 @@ header {
 }
 
 .top-bar .contact-details li a {
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
     display: block;
-    line-height: 32px;
+    line-height: 22px;
 }
 
 /* Top Bar Social */
@@ -229,8 +229,8 @@ ul.social-list li a i {
     font-size: 14px;
     display: block;
     width: 42px;
-    height: 42px;
-    line-height: 42px;
+    height: 32px;
+    line-height: 32px;
     text-align: center;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -503,7 +503,7 @@ a.navbar-brand {
 
 .banner .intro-text p {
     color: #fff;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 300;
     line-height: 35px;
     letter-spacing: 3px;
