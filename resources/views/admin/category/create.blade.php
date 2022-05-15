@@ -2,6 +2,8 @@
 @section('title')
     Create Category
 @endsection
+<?php $menu = 'categories'; $submenu = 'add_cat'; ?>
+
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-6">

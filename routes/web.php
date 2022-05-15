@@ -6,7 +6,9 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\ArticlesTutorialController;
+use App\Http\Controllers\Admin\VideoTutorialsController;
 use App\Http\Controllers\TutorialController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +56,5 @@ Route::group(['middleware' => 'admin'], function() {
     Route::resource('admin/subcategory', SubcategoryController::class);
 
     Route::resource('admin/tutorials/articles', ArticlesTutorialController::class);
+    Route::resource('admin/tutorials/videos', VideoTutorialsController::class);
 });

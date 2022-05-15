@@ -14,6 +14,7 @@ class TutorialController extends Controller
         ->leftjoin('subcategories', 'articles_tutorial.subcategory_id', 'subcategories.id')
         ->select('articles_tutorial.*', 'categories.category_name', 'subcategories.subcategory_name')
         ->where('status', 1)
+        ->orderBy('id', 'DESC')
         ->paginate(3);
 
         $category = DB::table('categories')->get();

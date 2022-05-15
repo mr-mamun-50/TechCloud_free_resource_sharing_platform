@@ -1,32 +1,31 @@
 @extends('admin.layouts.app')
 @section('title')
-    Edit Article
+    Edit video
 @endsection
-<?php $menu = 'articles';
-$submenu = 'manage_artcl'; ?>
+<?php $menu = 'videos';
+$submenu = 'manage_vid'; ?>
 
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-default text-dark py-2 px-4 d-flex justify-content-between align-items-center">
-                    <b>{{ $article->title }}</b>
-                    <a href="{{ route('articles.index') }}" class="btn btn-primary btn-sm">All Articles</a>
+                    <b>{{ $video->title }}</b>
+                    <a href="{{ route('videos.index') }}" class="btn btn-primary btn-sm">All videos</a>
                 </div>
                 <div class="p-2">
 
-                    <form action="{{ route('articles.update', $article->id) }}" method="post"
-                        enctype="multipart/form-data">
+                    <form action="{{ route('videos.update', $video->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="_method" value="put">
 
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label for="article_title">Title</label>
-                                <input class="form-control @error('article_title') is-invalid @enderror" type="text"
-                                    name="article_title" value="{{ $article->title }}">
-                                @error('article_title')
+                                <label for="video_title">Title</label>
+                                <input class="form-control @error('video_title') is-invalid @enderror" type="text"
+                                    name="video_title" value="{{ $video->title }}">
+                                @error('video_title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -46,54 +45,43 @@ $submenu = 'manage_artcl'; ?>
                                             {{ $item->category_name }}</option>
                                         @foreach ($subcategories as $subcat)
                                             <option value="{{ $subcat->id }}"
-                                                @if ($subcat->id == $article->subcategory_id) selected @endif>
+                                                @if ($subcat->id == $video->subcategory_id) selected @endif>
                                                 >{{ $subcat->subcategory_name }}
                                             </option>
                                         @endforeach
                                     @endforeach
                                 </select>
                             </div>
-                            {{-- <div class="form-group">
-                                <label for="subcategory_id">Select Subcategory</label>
-                                <select name="subcategory_id" class="form-control" id="">
-                                    <option value="  ">  </option>
-                                </select>
-                            </div> --}}
                             <div class="form-group">
-                                <label for="article_description">Description</label>
-                                <textarea name="article_description" class="form-control @error('article_description') is-invalid @enderror summernote"
-                                    cols="30" rows="7">{{ $article->description }}</textarea>
-                                @error('article_description')
+                                <label for="video_link">Video YouTube Link</label>
+                                <input type="text" class="form-control @error('video_link') is-invalid @enderror"
+                                    name="video_link" value="{{ $video->video_link }}">
+                                @error('video_link')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="article_tags">Tags</label>
-                                <input class="form-control @error('article_tags') is-invalid @enderror" type="text"
-                                    name="article_tags" value="{{ $article->tags }}">
-                                @error('article_tags')
+                                <label for="video_tags">Tags</label>
+                                <input class="form-control @error('video_tags') is-invalid @enderror" type="text"
+                                    name="video_tags" value="{{ $video->tags }}">
+                                @error('video_tags')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="article_thumb">Thumbnail</label>
-                                <input type="file" name="article_thumb" class="form-control">
-                                <input type="hidden" name="old_thumb" value="{{ $article->image }}">
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="article_status" value="1"
-                                        @if ($article->status) checked @endif>
+                                    <input type="checkbox" class="form-check-input" name="video_status" value="1"
+                                        @if ($video->status) checked @endif>
                                     Publish now
                                 </label>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn hor-grd btn-grd-primary">Update Article</button>
+                            <button type="submit" class="btn hor-grd btn-grd-primary">Update video</button>
                         </div>
                     </form>
                 </div>

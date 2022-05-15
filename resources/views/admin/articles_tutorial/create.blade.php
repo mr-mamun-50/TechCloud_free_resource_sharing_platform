@@ -2,6 +2,9 @@
 @section('title')
     Create Article
 @endsection
+<?php $menu = 'articles';
+$submenu = 'add_artcl'; ?>
+
 @section('content')
     <div class="row justify-content-center">
         {{-- <div class="col-md-8"> --}}

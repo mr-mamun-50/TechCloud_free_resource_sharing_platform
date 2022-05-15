@@ -2,6 +2,8 @@
 @section('title')
     Dashboard
 @endsection
+<?php $menu = 'dashboard'; $submenu=''; ?>
+
 @section('content')
     <div class="page-body">
         <div class="row">

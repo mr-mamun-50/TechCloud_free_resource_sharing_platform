@@ -2,6 +2,8 @@
 @section('title')
     Subcategories
 @endsection
+<?php $menu = 'subcategories'; $submenu=''; ?>
+
 @section('content')
     <div class="card">
         <div class="card-header bg-default text-dark py-2 px-4 d-flex justify-content-between align-items-center">

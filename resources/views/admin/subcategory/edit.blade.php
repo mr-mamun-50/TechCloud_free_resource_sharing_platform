@@ -2,6 +2,8 @@
 @section('title')
     Edit Category
 @endsection
+<?php $menu = 'subcategories'; $submenu=''; ?>
+
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-6">
