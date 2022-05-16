@@ -7,6 +7,7 @@ use DB;
 
 class TutorialController extends Controller
 {
+    //__Article tutorials
     public function article_index() {
 
         $articles = DB::table('articles_tutorial')
@@ -34,5 +35,21 @@ class TutorialController extends Controller
         $author = DB::table('users')->where('id', $article->user_id)->first();
 
         return view('user.article_tutorials.view', compact('article', 'category', 'author'));
+    }
+
+    // __Video tutorials
+    public function video_index() {
+
+        $videos = DB::table('video_tutorials')
+        ->leftjoin('categories', 'video_tutorials.category_id', 'categories.id')
+        ->leftjoin('subcategories', 'video_tutorials.subcategory_id', 'subcategories.id')
+        ->select('video_tutorials.*', 'categories.category_name', 'subcategories.subcategory_name')
+        ->where('status', 1)
+        ->orderBy('id', 'DESC')
+        ->paginate(5);
+
+        $category = DB::table('categories')->get();
+
+        return view('user.video_tutorials.index', compact('videos', 'category'));
     }
 }

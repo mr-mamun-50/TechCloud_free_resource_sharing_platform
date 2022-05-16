@@ -15,8 +15,9 @@
                     </div>
                 </div>
             </div>
-            <a href="index.html">
-                <img class="img-fluid" src="{{ asset('adm') }}/assets/images/logo.png" alt="Theme-Logo" />
+            <a href="{{ route('admin.dashboard') }}" class="pl-1">
+                <img class="d-flex mr-auto" src="{{ asset('images/logos/TECH_CLOUD_Logo.png') }}" alt="Theme-Logo"
+                    style="height: 35px; width: 170px" />
             </a>
             <a class="mobile-options">
                 <i class="ti-more"></i>

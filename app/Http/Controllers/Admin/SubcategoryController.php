@@ -16,7 +16,12 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $data = DB::table('subcategories')->leftjoin('categories', 'subcategories.category_id', 'categories.id')->select('categories.category_name', 'subcategories.*')->get();
+        $data = DB::table('subcategories')
+        ->leftjoin('categories', 'subcategories.category_id', 'categories.id')
+        ->select('categories.category_name', 'subcategories.*')
+        ->orderBy('id', 'DESC')
+        ->get();
+
         $cat_data = DB::table('categories')->get();
 
         return view('admin.subcategory.index', compact('data', 'cat_data'));

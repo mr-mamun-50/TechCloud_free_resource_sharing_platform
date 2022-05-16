@@ -21,6 +21,7 @@ class VideoTutorialsController extends Controller
                     ->leftjoin('categories', 'video_tutorials.category_id', 'categories.id')
                     ->leftjoin('subcategories', 'video_tutorials.subcategory_id', 'subcategories.id')
                     ->select('video_tutorials.*', 'categories.category_name', 'subcategories.subcategory_name')
+                    ->orderBy('id', 'DESC')
                     ->get();
 
         $category = DB::table('categories')->get();

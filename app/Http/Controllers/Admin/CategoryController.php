@@ -16,7 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = DB::table('categories')->get();
+        $data = DB::table('categories')
+        ->orderBy('id', 'DESC')
+        ->get();
+
         return view('admin.category.index', compact('data'));
     }
 

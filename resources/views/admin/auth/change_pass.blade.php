@@ -1,4 +1,9 @@
 @extends('admin.layouts.app')
+@section('title')
+    Change Password
+@endsection
+<?php $menu = '';
+$submenu = ''; ?>
 
 @section('content')
     <div class="row justify-content-center">

@@ -55,7 +55,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
         <div class="container">
 
-            <a class="navbar-brand" href="#">TechCloud</a>
+            <a class="navbar-brand" href="{{ url('/') }}"><img
+                    src="{{ asset('images/logos/TECH_CLOUD_Logo.png') }}" alt="TechCloud"
+                    style="height: 35px; width: 170px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -72,7 +74,7 @@
                     </div>
                 </form>
 
-                <ul class="navbar-nav ml-auto d-flex align-items-center">
+                <ul class="navbar-nav ml-auto d-lg-flex align-items-center">
                     <li class="nav-item active">
                         <a class="nav-link" href=" {{ url('/') }} ">Home <span
                                 class="sr-only">(current)</span></a>
@@ -90,7 +92,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('tutorials.article') }}">Articles</a>
-                            <a class="dropdown-item" href="{{ route('tutorials.article') }}">Videos</a>
+                            <a class="dropdown-item" href="{{ route('tutorials.video') }}">Videos</a>
                         </div>
                     </li>
                     @if (Route::has('login'))
@@ -115,7 +117,7 @@
                                 </div>
                             </li>
                         @else
-                            <a href="{{ route('login') }}" class="btn btn-outline-secondary mx-2">Log in</a>
+                            <a href="{{ route('login') }}" class="btn btn-outline-light mx-2">Login</a>
 
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="btn btn-primary">Register</a>

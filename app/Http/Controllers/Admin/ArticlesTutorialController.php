@@ -23,6 +23,7 @@ class ArticlesTutorialController extends Controller
                     ->leftjoin('categories', 'articles_tutorial.category_id', 'categories.id')
                     ->leftjoin('subcategories', 'articles_tutorial.subcategory_id', 'subcategories.id')
                     ->select('articles_tutorial.*', 'categories.category_name', 'subcategories.subcategory_name')
+                    ->orderBy('id', 'DESC')
                     ->get();
 
         $category = DB::table('categories')->get();
