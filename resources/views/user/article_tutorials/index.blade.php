@@ -6,7 +6,7 @@
 
 @section('content')
     <!-- Start Header Section -->
-    <div class="page-header mt-4">
+    <div class="page-header mt-0">
         <div class="overlay">
             <div class="container">
                 <div class="row">
@@ -50,92 +50,23 @@
                                 <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
                             </ul>
                             <hr>
-                            <p class="post-content"><?php echo $item->description; ?></p>
-                            <a href="#" class="btn btn-primary readmore">Read more...<i class="fa fa-angle-right"></i></a>
+                            {{-- <p class="post-content"><?php echo substr($item->description, 0, 200); ?>...</p> --}}
+                            <a href="{{ route('tutorials.view', $item->id) }}" class="btn btn-secondary">View article <i
+                                    class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                     <!-- End Blog Post -->
                 @endforeach
 
 
-
-
                 <!-- Start Pagination -->
                 {{ $articles->links('pagination::bootstrap-5') }}
-
-                {{-- <nav>
-                    <ul class="pagination">
-                        <li class="disabled"><a href="#" aria-label="Start">Start</a></li>
-                        <li class="disabled"><a href="#" aria-label="Previous">Prev</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">Next</a></li>
-                        <li><a href="#">End</a></li>
-                    </ul>
-                </nav> --}}
-                <!-- End Pagination -->
 
             </div>
             <!-- End Blog Body Section -->
 
             <!-- Start Sidebar Section -->
             <div class="col-md-4 sidebar right-sidebar">
-
-
-                <!-- Start Flickr Widget -->
-                <div class="widget flickr-widget">
-
-                    <div class="section-heading-2">
-                        <h3 class="section-title mb-3">
-                            <span>Flickr Stream</span>
-                        </h3>
-                    </div>
-
-                    <ul class="flickr-list">
-                        <li>
-                            <a href="{{ asset('asset') }}/images/flickr/8.jpg" data-lightbox="picture-1">
-                                <img src="{{ asset('asset') }}/images/flickr/8.jpg" alt="" class="img-responsive">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ asset('asset') }}/images/flickr/7.jpg" data-lightbox="picture-2">
-                                <img src="{{ asset('asset') }}/images/flickr/7.jpg" alt="" class="img-responsive">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ asset('asset') }}/images/flickr/6.jpg" data-lightbox="picture-3">
-                                <img src="{{ asset('asset') }}/images/flickr/6.jpg" alt="" class="img-responsive">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ asset('asset') }}/images/flickr/5.jpg" data-lightbox="picture-4">
-                                <img src="{{ asset('asset') }}/images/flickr/5.jpg" alt="" class="img-responsive">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ asset('asset') }}/images/flickr/4.jpg" data-lightbox="picture-5">
-                                <img src="{{ asset('asset') }}/images/flickr/4.jpg" alt="" class="img-responsive">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ asset('asset') }}/images/flickr/3.jpg" data-lightbox="picture-6">
-                                <img src="{{ asset('asset') }}/images/flickr/3.jpg" alt="" class="img-responsive">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ asset('asset') }}/images/flickr/2.jpg" data-lightbox="picture-7">
-                                <img src="{{ asset('asset') }}/images/flickr/2.jpg" alt="" class="img-responsive">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ asset('asset') }}/images/flickr/1.jpg" data-lightbox="picture-8">
-                                <img src="{{ asset('asset') }}/images/flickr/1.jpg" alt="" class="img-responsive">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Flickr Widget -->
-
 
                 <!-- Start Recent Post Widget -->
                 <div class="widget widget-recent-post">

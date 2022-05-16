@@ -15,10 +15,24 @@ class TutorialController extends Controller
         ->select('articles_tutorial.*', 'categories.category_name', 'subcategories.subcategory_name')
         ->where('status', 1)
         ->orderBy('id', 'DESC')
-        ->paginate(3);
+        ->paginate(5);
 
         $category = DB::table('categories')->get();
 
-        return view('article_tutorial', compact('articles', 'category'));
+        return view('user.article_tutorials.index', compact('articles', 'category'));
+    }
+
+    public function article_view($id) {
+        $article = DB::table('articles_tutorial')
+        ->leftjoin('categories', 'articles_tutorial.category_id', 'categories.id')
+        ->leftjoin('subcategories', 'articles_tutorial.subcategory_id', 'subcategories.id')
+        ->select('articles_tutorial.*', 'categories.category_name', 'subcategories.subcategory_name')
+        ->where('articles_tutorial.id', '=', $id)
+        ->first();
+
+        $category = DB::table('categories')->get();
+        $author = DB::table('users')->where('id', $article->user_id)->first();
+
+        return view('user.article_tutorials.view', compact('article', 'category', 'author'));
     }
 }

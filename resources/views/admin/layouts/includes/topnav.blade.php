@@ -98,7 +98,7 @@
 
                 <li class="user-profile header-notification">
                     <a href="#!">
-                        <img src="{{ asset('adm') }}/assets/images/avatar-4.jpg" class="img-radius"
+                        <img src="{{ asset('images/admn/admin_pic.jpg') }}" class="img-radius border"
                             alt="User-Profile-Image">
                         <span>{{ Auth::guard('admin')->user()->name }}</span>
                         <i class="ti-angle-down"></i>

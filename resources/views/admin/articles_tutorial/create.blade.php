@@ -11,18 +11,18 @@ $submenu = 'add_artcl'; ?>
         <div class="card">
             <div class="card-header bg-default text-dark py-2 px-4 d-flex justify-content-between align-items-center">
                 <b>Add new Article</b>
-                <a href=" {{ route('articles.index') }} " class="btn btn-primary btn-sm">All Articles</a>
+                <a href="{{ route('articles.index') }}" class="btn btn-primary btn-sm">All Articles</a>
             </div>
             <div class="p-2">
 
-                <form action=" {{ route('articles.store') }} " method="post" enctype="multipart/form-data">
+                <form action="{{ route('articles.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
 
                         <div class="form-group">
                             <label for="article_title">Title</label>
                             <input class="form-control @error('article_title') is-invalid @enderror" type="text"
-                                name="article_title" value=" {{ old('article_title') }} ">
+                                name="article_title" value="{{ old('article_title') }}">
                             @error('article_title')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -39,10 +39,10 @@ $submenu = 'add_artcl'; ?>
                                             ->where('category_id', $item->id)
                                             ->get();
                                     @endphp
-                                    <option value=" {{ $item->id }} " class="text-info font-weight-bold" disabled>
-                                        {{ $item->category_name }} </option>
+                                    <option value="{{ $item->id }}" class="text-info font-weight-bold" disabled>
+                                        {{ $item->category_name }}</option>
                                     @foreach ($subcategories as $subcat)
-                                        <option value=" {{ $subcat->id }} "> > {{ $subcat->subcategory_name }}
+                                        <option value="{{ $subcat->id }}"> >{{ $subcat->subcategory_name }}
                                         </option>
                                     @endforeach
                                 @endforeach
@@ -57,7 +57,7 @@ $submenu = 'add_artcl'; ?>
                         <div class="form-group">
                             <label for="article_description">Description</label>
                             <textarea name="article_description" class="form-control @error('article_description') is-invalid @enderror summernote"
-                                cols="30" rows="7"> {{ old('article_description') }} </textarea>
+                                cols="30" rows="7">{{ old('article_description') }}</textarea>
                             @error('article_description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@ $submenu = 'add_artcl'; ?>
                         <div class="form-group">
                             <label for="article_tags">Tags</label>
                             <input class="form-control @error('article_tags') is-invalid @enderror" type="text"
-                                name="article_tags" value=" {{ old('article_tags') }} ">
+                                name="article_tags" value="{{ old('article_tags') }}">
                             @error('article_tags')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

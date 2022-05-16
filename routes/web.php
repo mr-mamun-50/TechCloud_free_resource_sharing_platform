@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/tutorials/article', [TutorialController::class, 'article_index'])->name('tutorials.article');
+Route::get('/tutorials/article/{id}', [TutorialController::class, 'article_view', 'id'])->name('tutorials.view');
 
 
 

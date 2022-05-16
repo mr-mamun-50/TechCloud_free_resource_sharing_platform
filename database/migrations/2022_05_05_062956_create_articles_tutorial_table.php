@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('subcategory_id');
             $table->unsignedBigInteger('user_id');
             $table->string('username');
+            $table->string('useremail');
             $table->string('title');
             $table->string('slug');
             $table->string('post_date')->nullable();
