@@ -38,7 +38,8 @@
                                 alt="Blog image">
                         </div>
                         <div class="card-body">
-                            <h1 class="post-title"><a href="#">{{ $item->title }}</a></h1>
+                            <h1 class="post-title"><a
+                                    href="{{ route('tutorials.view', $item->id) }}">{{ $item->title }}</a></h1>
 
                             <ul class="post-meta">
                                 <li><i class="fas fa-clock"></i>
