@@ -84,6 +84,7 @@ h6 {
 .bg-theme {
     background: url(https://www.sjinnovation.com/themes/custom/sji_theme/images/home-bg.svg);
     background-repeat: repeat-y;
+    background-size: cover;
 }
 .topbar {
     /* background: #1f8ceb; */

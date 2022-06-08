@@ -1,18 +1,18 @@
 @extends('admin.layouts.app')
 @section('title')
-    Article Tutorials
+    Softwares
 @endsection
-<?php $menu = 'articles';
-$submenu = 'manage_artcl'; ?>
+<?php $menu = 'Softwares';
+$submenu = ''; ?>
 
 @section('content')
     <div class="card">
         <div class="card-header bg-default text-dark py-2 px-4 d-flex justify-content-between align-items-center">
-            <b>Article Tutorials</b>
+            <b>All Softwares</b>
             <!-- Button trigger modal -->
             <button type="button" class="btn hor-grd btn-grd-primary btn-sm" data-toggle="modal"
                 data-target="#staticBackdrop">
-                <i class="fas fa-plus"></i> Add Article
+                <i class="fas fa-plus"></i> Add Software
             </button>
         </div>
         <div class="card-body">
@@ -22,19 +22,18 @@ $submenu = 'manage_artcl'; ?>
                     <tr>
                         <th>SL</th>
                         <th>Category / Subcategory</th>
-                        <th>Author & Time</th>
+                        <th>Provider & Time</th>
                         <th>Title & Status</th>
-                        <th>Thumbnail</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($articles as $index => $item)
+                    @foreach ($softwares as $index => $item)
                         <tr>
-                            <td> {{ ++$index }} </td>
-                            <td> {{ $item->category_name }} /<br>
-                                {{ $item->subcategory_name }} </td>
-                            <td> {{ $item->username }}
+                            <td>{{ ++$index }}</td>
+                            <td>{{ $item->category_name }}/<br>
+                                {{ $item->subcategory_name }}</td>
+                            <td>{{ $item->username }}
                                 <div class="text-muted">
                                     <small><i>Created:</i>
                                         {{ date('d F, Y | h:i A', strtotime($item->post_date)) }}</small>
@@ -44,15 +43,13 @@ $submenu = 'manage_artcl'; ?>
                                     @endif
                                 </div>
                             </td>
-                            <td> {{ $item->title }} <br>
+                            <td>{{ $item->title }}<br>
                                 @if ($item->status)
                                     <span class="badge badge-success">Public</span>
                                 @else
                                     <span class="badge badge-warning">Private</span>
                                 @endif
                             </td>
-                            <td> <img src="{{ asset('images/articles') . '/' . $item->image }}" alt="Thumbnail"
-                                    style="width: 100px"> </td>
 
                             <td class="d-flex justify-content-center">
 
@@ -60,10 +57,10 @@ $submenu = 'manage_artcl'; ?>
                                     data-target="{{ '#staticBackdrop' . $item->id }}"><i
                                         class="bi bi-eye"></i></button>
 
-                                <a href=" {{ route('articles.edit', $item->id) }} "
+                                <a href="{{ route('softwares.edit', $item->id) }}"
                                     class="btn btn-primary mr-1 pt-1 pb-0 pl-1 pr-0"><i class="bi bi-pencil-square"></i></a>
 
-                                <form action=" {{ route('articles.destroy', $item->id) }} " method="post">
+                                <form action="{{ route('softwares.destroy', $item->id) }}" method="post">
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-danger delete pt-1 pb-0 pl-1 pr-0"><i
@@ -72,11 +69,11 @@ $submenu = 'manage_artcl'; ?>
                             </td>
                         </tr>
 
-                        <!-- Modal for view article -->
+                        <!-- Modal for view video -->
                         <div class="modal fade" id="{{ 'staticBackdrop' . $item->id }}" data-backdrop="static"
                             data-keyboard="false" tabindex="-1"
                             aria-labelledby="{{ 'staticBackdrop' . $item->id . 'Label' }}" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog">
                                 <div class="modal-content card">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">{{ $item->title }}</h5>
@@ -85,8 +82,13 @@ $submenu = 'manage_artcl'; ?>
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <img src="{{ asset('images/articles') . '/' . $item->image }}" alt="Thumbnail"
-                                        class="w-100">
+
+                                    <iframe width="100%" height="315"
+                                        src="https://www.youtube.com/embed/{{ $item->video_link }}"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+
                                     <div class="modal-body">
 
                                         <div class="text-muted d-flex justify-content-between">
@@ -117,11 +119,6 @@ $submenu = 'manage_artcl'; ?>
                                         </div>
                                         <hr>
                                         <div>
-                                            <h6>Description:</h6>
-                                            <?php echo $item->description; ?>
-                                        </div>
-                                        <hr>
-                                        <div>
                                             <h6>Tags:</h6>
                                             <code>{{ $item->tags }}</code>
                                         </div>
@@ -134,27 +131,27 @@ $submenu = 'manage_artcl'; ?>
             </table>
         </div>
 
-        <!-- Modal for add category -->
+        <!-- Modal for add software -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-default text-dark rounded">
-                        <h5 class="modal-title" id="staticBackdropLabel">Create New Article</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Add New Software</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
 
-                    <form action=" {{ route('articles.store') }} " method="post" enctype="multipart/form-data">
+                    <form action="{{ route('softwares.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label for="article_title">Title</label>
-                                <input class="form-control @error('article_title') is-invalid @enderror" type="text"
-                                    name="article_title" value=" {{ old('article_title') }} ">
-                                @error('article_title')
+                                <label for="name">Name</label>
+                                <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
+                                    value="{{ old('name') }}">
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -170,49 +167,49 @@ $submenu = 'manage_artcl'; ?>
                                                 ->where('category_id', $item->id)
                                                 ->get();
                                         @endphp
-                                        <option value=" {{ $item->id }} " class="text-info font-weight-bold" disabled>
-                                            {{ $item->category_name }} </option>
+                                        <option value="{{ $item->id }}" class="text-info font-weight-bold" disabled>
+                                            {{ $item->category_name }}</option>
                                         @foreach ($subcategories as $subcat)
-                                            <option value=" {{ $subcat->id }} "> > {{ $subcat->subcategory_name }}
+                                            <option value="{{ $subcat->id }}"> >{{ $subcat->subcategory_name }}
                                             </option>
                                         @endforeach
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="article_description">Description</label>
-                                <textarea name="article_description" class="form-control @error('article_description') is-invalid @enderror " cols="30"
-                                    rows="7"> {{ old('article_description') }} </textarea>
-                                @error('article_description')
+                                <label for="soft_file">Software File</label>
+                                <input type="file" name="soft_file" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea name="description" class="form-control @error('description') is-invalid @enderror summernote" cols="30"
+                                    rows="7">{{ old('description') }}</textarea>
+                                @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="article_tags">Tags</label>
-                                <input class="form-control @error('article_tags') is-invalid @enderror" type="text"
-                                    name="article_tags" value=" {{ old('article_tags') }} ">
-                                @error('article_tags')
+                                <label for="tags">Tags</label>
+                                <input class="form-control @error('tags') is-invalid @enderror" type="text" name="tags"
+                                    value="{{ old('tags') }}">
+                                @error('tags')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="article_thumb">Thumbnail</label>
-                                <input type="file" name="article_thumb" class="form-control" placeholder="">
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="article_status" value="1">
+                                    <input type="checkbox" class="form-check-input" name="status" value="1">
                                     Publish now
                                 </label>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn hor-grd btn-grd-primary">Create Article</button>
+                            <button type="reset" class="btn">Reset</button>
+                            <button type="submit" class="btn hor-grd btn-grd-primary">Add Software</button>
                         </div>
                     </form>
                 </div>

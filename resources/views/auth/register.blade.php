@@ -47,7 +47,7 @@
 
             <!-- Image -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Photo')" />
 
                 <input class="block mt-1 w-full" type="file" name="user_image" required>
             </div>
