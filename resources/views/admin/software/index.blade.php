@@ -178,7 +178,13 @@ $submenu = ''; ?>
                             </div>
                             <div class="form-group">
                                 <label for="soft_file">Software File</label>
-                                <input type="file" name="soft_file" class="form-control" placeholder="">
+                                <input type="file" name="soft_file"
+                                    class="form-control @error('soft_file') is-invalid @enderror" placeholder="">
+                                @error('soft_file')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>

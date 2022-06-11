@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Str;
+use Auth;
+use Image;
+use File;
 
 class SoftwareController extends Controller
 {
@@ -45,7 +49,28 @@ class SoftwareController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'subcategory_id' => 'required',
+            'subcategory_id' => 'required',
+            'soft_file' => 'required',
+            'tags' => 'required',
+        ]);
+
+        $name_slug = Str::of($request->name)->slug('-');
+        $data = [
+            'name' => $request->name,
+            'slug' => $name_slug,
+            'category_id' => DB::table('subcategories')->where('id', $request->subcategory_id)->first()->category_id,
+            'subcategory_id' => $request->subcategory_id,
+            'user_id' => Auth::guard('admin')->user()->id,
+            'username' => Auth::guard('admin')->user()->name,
+            'useremail' => Auth::guard('admin')->user()->email,
+            'description' => $request->description,
+            'post_date' => now('6.0').date(''),
+            'tags' => $request->tags,
+            'status' => $request->status,
+        ];
     }
 
     /**

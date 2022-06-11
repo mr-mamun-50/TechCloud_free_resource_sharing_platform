@@ -43,6 +43,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Summernote -->
 <script src="{{ asset('adm') }}/plugins/summernote/summernote-bs4.min.js"></script>
 
+
 <script>
     $('.delete').click(function(event) {
         var form = $(this).closest("form");

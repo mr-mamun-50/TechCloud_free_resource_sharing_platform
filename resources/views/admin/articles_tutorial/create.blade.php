@@ -65,6 +65,10 @@ $submenu = 'add_artcl'; ?>
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="article_thumb">Thumbnail</label>
+                            <input type="file" name="article_thumb" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
                             <label for="article_tags">Tags</label>
                             <input class="form-control @error('article_tags') is-invalid @enderror" type="text"
                                 name="article_tags" value="{{ old('article_tags') }}">
@@ -73,10 +77,6 @@ $submenu = 'add_artcl'; ?>
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="article_thumb">Thumbnail</label>
-                            <input type="file" name="article_thumb" class="form-control" placeholder="">
                         </div>
                         <div class="form-check">
                             <label class="form-check-label">

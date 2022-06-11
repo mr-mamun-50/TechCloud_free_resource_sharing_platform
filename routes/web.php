@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ArticlesTutorialController;
 use App\Http\Controllers\Admin\VideoTutorialsController;
 use App\Http\Controllers\Admin\SoftwareController;
 use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\UploadController;
 
 
 /*
@@ -47,6 +48,8 @@ Route::get('/tutorials/video', [TutorialController::class, 'video_index'])->name
 
 Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->name('admin.login')->middleware('guest:admin');
 Route::post('/admin/login/store', [AuthenticatedSessionController::class, 'store'])->name('admin.login.store');
+
+Route::post('/upload', [UploadController::class, 'store']);
 
 Route::group(['middleware' => 'admin'], function() {
 
