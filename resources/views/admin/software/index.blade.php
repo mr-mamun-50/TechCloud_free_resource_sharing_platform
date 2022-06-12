@@ -21,9 +21,10 @@ $submenu = ''; ?>
                 <thead>
                     <tr>
                         <th>SL</th>
+                        <th>Thumbnail</th>
+                        <th>Name & Status</th>
                         <th>Category / Subcategory</th>
                         <th>Provider & Time</th>
-                        <th>Title & Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -31,6 +32,15 @@ $submenu = ''; ?>
                     @foreach ($softwares as $index => $item)
                         <tr>
                             <td>{{ ++$index }}</td>
+                            <td> <img src="{{ asset('images/thumbnails') . '/' . $item->thumb }}" alt="Thumbnail"
+                                    style="width: 100px"> </td>
+                            <td>{{ $item->name }}<br>
+                                @if ($item->status)
+                                    <span class="badge badge-success">Public</span>
+                                @else
+                                    <span class="badge badge-warning">Private</span>
+                                @endif
+                            </td>
                             <td>{{ $item->category_name }}/<br>
                                 {{ $item->subcategory_name }}</td>
                             <td>{{ $item->username }}
@@ -43,22 +53,15 @@ $submenu = ''; ?>
                                     @endif
                                 </div>
                             </td>
-                            <td>{{ $item->title }}<br>
-                                @if ($item->status)
-                                    <span class="badge badge-success">Public</span>
-                                @else
-                                    <span class="badge badge-warning">Private</span>
-                                @endif
-                            </td>
 
                             <td class="d-flex justify-content-center">
 
-                                <button type="button" class="btn btn-info mr-1 pt-1 pb-0 pl-1 pr-0" data-toggle="modal"
+                                <button type="button" class="btn btn-success mr-1 pt-1 pb-0 pl-1 pr-0" data-toggle="modal"
                                     data-target="{{ '#staticBackdrop' . $item->id }}"><i
-                                        class="bi bi-eye"></i></button>
+                                        class="bi bi-download"></i></button>
 
-                                <a href="{{ route('softwares.edit', $item->id) }}"
-                                    class="btn btn-primary mr-1 pt-1 pb-0 pl-1 pr-0"><i class="bi bi-pencil-square"></i></a>
+                                <button type="button" class="btn btn-primary mr-1 pt-1 pb-0 pl-1 pr-0" data-toggle="modal"
+                                    data-target="{{ '#edit' . $item->id }}"><i class="bi bi-pencil-square"></i></button>
 
                                 <form action="{{ route('softwares.destroy', $item->id) }}" method="post">
                                     @csrf
@@ -76,19 +79,14 @@ $submenu = ''; ?>
                             <div class="modal-dialog">
                                 <div class="modal-content card">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">{{ $item->title }}</h5>
+                                        <h5 class="modal-title" id="staticBackdropLabel">{{ $item->name }}</h5>
                                         <button type="button" class="close" data-dismiss="modal"
                                             aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-
-                                    <iframe width="100%" height="315"
-                                        src="https://www.youtube.com/embed/{{ $item->video_link }}"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-
+                                    <img src="{{ asset('images/thumbnails') . '/' . $item->thumb }}" alt="Thumbnail"
+                                        class="w-100">
                                     <div class="modal-body">
 
                                         <div class="text-muted d-flex justify-content-between">
@@ -119,10 +117,105 @@ $submenu = ''; ?>
                                         </div>
                                         <hr>
                                         <div>
+                                            <h6>Description:</h6>
+                                            <?php echo $item->description; ?>
+                                        </div>
+                                        <hr>
+                                        <div>
                                             <h6>Tags:</h6>
                                             <code>{{ $item->tags }}</code>
                                         </div>
+                                        <hr>
+                                        <div>
+                                            <a href="{{ asset('softwares') . '/' . $item->soft_file }}"
+                                                download=""><button class="btn btn-grd-success hor-grd btn-block"><i
+                                                        class="bi bi-download"></i> Download</button></a>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Modal for edit video -->
+                        <div class="modal fade" id="{{ 'edit' . $item->id }}" data-backdrop="static"
+                            data-keyboard="false" tabindex="-1" aria-labelledby="{{ 'edit' . $item->id . 'Label' }}"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-default text-dark rounded">
+                                        <h5 class="modal-title" id="staticBackdropLabel">{{ $item->name }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <form action="{{ route('softwares.update', $item->id) }}" method="post"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="put">
+                                        <div class="modal-body">
+
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input class="form-control" type="text" name="name"
+                                                    value="{{ $item->name }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="subcategory_id">Category</label>
+                                                <select name="subcategory_id" class="form-control" id="">
+                                                    <option disabled selected>Choose Category</option>
+                                                    @foreach ($category as $cat)
+                                                        @php
+                                                            $subcategories = DB::table('subcategories')
+                                                                ->where('category_id', $cat->id)
+                                                                ->get();
+                                                        @endphp
+                                                        <option value="{{ $cat->id }}"
+                                                            class="text-info font-weight-bold" disabled>
+                                                            {{ $cat->category_name }}</option>
+                                                        @foreach ($subcategories as $subcat)
+                                                            <option value="{{ $subcat->id }}"
+                                                                @if ($subcat->id == $item->subcategory_id) selected @endif>
+                                                                >{{ $subcat->subcategory_name }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="soft_file">Software File</label>
+                                                <input type="file" name="soft_file" class="form-control" placeholder="">
+                                                <input type="hidden" name="old_soft_file" value="{{ $item->soft_file }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="c">Thumbnail</label>
+                                                <input type="file" name="thumb" class="form-control" placeholder="">
+                                                <input type="hidden" name="old_thumb" value="{{ $item->thumb }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description">Description</label>
+                                                <textarea name="description" class="form-control summernote" cols="30" rows="7">{{ $item->description }}</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tags">Tags</label>
+                                                <input class="form-control @error('tags') is-invalid @enderror" type="text"
+                                                    name="tags" value="{{ $item->tags }}">
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" name="status" value="1"
+                                                        @if ($item->status) checked @endif>
+                                                    Publish now
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn hor-grd btn-grd-primary">Update
+                                                Software</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -181,6 +274,16 @@ $submenu = ''; ?>
                                 <input type="file" name="soft_file"
                                     class="form-control @error('soft_file') is-invalid @enderror" placeholder="">
                                 @error('soft_file')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="c">Thumbnail</label>
+                                <input type="file" name="thumb" class="form-control @error('thumb') is-invalid @enderror"
+                                    placeholder="">
+                                @error('thumb')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

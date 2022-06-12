@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('post_date')->nullable();
             $table->string('update_date')->nullable();
             $table->string('soft_file')->nullable();
+            $table->string('thumb')->nullable();
             $table->text('description')->nullable();
             $table->text('tags')->nullable();
             $table->integer('status')->nullable()->default(0);

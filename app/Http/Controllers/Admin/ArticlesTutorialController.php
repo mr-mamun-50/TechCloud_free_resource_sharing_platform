@@ -51,7 +51,6 @@ class ArticlesTutorialController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $validated = $request->validate([
             'article_title' => 'required',
             'subcategory_id' => 'required',

@@ -134,7 +134,7 @@ $submenu = 'manage_artcl'; ?>
             </table>
         </div>
 
-        <!-- Modal for add category -->
+        <!-- Modal for add article -->
         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -180,6 +180,10 @@ $submenu = 'manage_artcl'; ?>
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="article_thumb">Thumbnail</label>
+                                <input type="file" name="article_thumb" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group">
                                 <label for="article_description">Description</label>
                                 <textarea name="article_description" class="form-control @error('article_description') is-invalid @enderror summernote"
                                     cols="30" rows="7"> {{ old('article_description') }} </textarea>
@@ -188,10 +192,6 @@ $submenu = 'manage_artcl'; ?>
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="article_thumb">Thumbnail</label>
-                                <input type="file" name="article_thumb" class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="article_tags">Tags</label>

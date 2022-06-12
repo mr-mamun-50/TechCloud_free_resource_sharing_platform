@@ -8,8 +8,8 @@ use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\ArticlesTutorialController;
 use App\Http\Controllers\Admin\VideoTutorialsController;
 use App\Http\Controllers\Admin\SoftwareController;
+use App\Http\Controllers\Admin\DesignsController;
 use App\Http\Controllers\TutorialController;
-use App\Http\Controllers\UploadController;
 
 
 /*
@@ -49,8 +49,6 @@ Route::get('/tutorials/video', [TutorialController::class, 'video_index'])->name
 Route::get('/admin/login', [AuthenticatedSessionController::class, 'create'])->name('admin.login')->middleware('guest:admin');
 Route::post('/admin/login/store', [AuthenticatedSessionController::class, 'store'])->name('admin.login.store');
 
-Route::post('/upload', [UploadController::class, 'store']);
-
 Route::group(['middleware' => 'admin'], function() {
 
     Route::get('/admin', [HomeController::class, 'index'])->name('admin.dashboard');
@@ -65,5 +63,6 @@ Route::group(['middleware' => 'admin'], function() {
     Route::resource('admin/tutorials/articles', ArticlesTutorialController::class);
     Route::resource('admin/tutorials/videos', VideoTutorialsController::class);
 
-    Route::resource('admin/tutorials/softwares', SoftwareController::class);
+    Route::resource('admin/softwares', SoftwareController::class);
+    Route::resource('admin/designs', DesignsController::class);
 });
