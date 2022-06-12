@@ -72,7 +72,7 @@ $submenu = ''; ?>
                             </td>
                         </tr>
 
-                        <!-- Modal for view video -->
+                        <!-- Modal for download software -->
                         <div class="modal fade" id="{{ 'staticBackdrop' . $item->id }}" data-backdrop="static"
                             data-keyboard="false" tabindex="-1"
                             aria-labelledby="{{ 'staticBackdrop' . $item->id . 'Label' }}" aria-hidden="true">

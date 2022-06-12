@@ -3,6 +3,7 @@
 @section('title')
     Home
 @endsection
+<?php $nav = 'Home'; ?>
 
 @section('content')
     <!-- Start Header Section -->

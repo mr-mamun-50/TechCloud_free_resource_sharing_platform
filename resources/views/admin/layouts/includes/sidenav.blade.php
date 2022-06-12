@@ -103,14 +103,14 @@
 
             <li class="@if ($menu == 'Softwares') active @endif">
                 <a href=" {{ route('softwares.index') }} ">
-                    <span class="pcoded-micon"><i class="bi bi-tags"></i></span>
+                    <span class="pcoded-micon"><i class="bi bi-window-sidebar"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Softwares</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
             <li class="@if ($menu == 'Designs') active @endif">
                 <a href=" {{ route('designs.index') }} ">
-                    <span class="pcoded-micon"><i class="bi bi-tags"></i></span>
+                    <span class="pcoded-micon"><i class="bi bi-bezier"></i></span>
                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Designs</span>
                     <span class="pcoded-mcaret"></span>
                 </a>

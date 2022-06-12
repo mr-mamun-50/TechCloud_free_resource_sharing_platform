@@ -92,6 +92,22 @@ h6 {
     /* background: linear-gradient(to right, #1f8ceb, #ffa300); */
 }
 
+nav ul li a i {
+    color: #5edfff;
+}
+.active {
+    /* color: #5edfff !important; */
+    /* border: 0.01px solid #5edfff; */
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px #5edfff;
+}
+nav ul .nav-item:hover {
+    /* color: #5edfff !important; */
+    /* border: 0.01px solid #5edfff; */
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px #5edfff;
+}
+
 .btn-primary {
     background: #ffa300;
     border-color: #ffa300;

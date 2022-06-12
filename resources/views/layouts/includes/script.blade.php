@@ -23,6 +23,14 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Sweetalert js -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- Datatables JS -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+
 <script>
     $('.delete').click(function(event) {
         var form = $(this).closest("form");

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\VideoTutorialsController;
 use App\Http\Controllers\Admin\SoftwareController;
 use App\Http\Controllers\Admin\DesignsController;
 use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\ServiceController;
 
 
 /*
@@ -37,6 +38,10 @@ Route::get('/tutorials/article', [TutorialController::class, 'article_index'])->
 Route::get('/tutorials/article/{id}', [TutorialController::class, 'article_view', 'id'])->name('tutorials.view');
 
 Route::get('/tutorials/video', [TutorialController::class, 'video_index'])->name('tutorials.video');
+
+
+Route::get('/services/softwares', [ServiceController::class, 'softwares'])->name('services.softwares');
+
 
 
 

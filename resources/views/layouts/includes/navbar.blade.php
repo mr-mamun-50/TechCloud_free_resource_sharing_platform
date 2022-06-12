@@ -65,7 +65,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <form class="input-group m-2 my-lg-0 mx-lg-5">
+                <form class="input-group m-2 my-lg-0 ml-lg-5" style="width: 210px">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search"
                         aria-describedby="button-addon2">
                     <div class="input-group-append">
@@ -75,20 +75,21 @@
                 </form>
 
                 <ul class="navbar-nav ml-auto d-lg-flex align-items-center">
-                    <li class="nav-item active">
-                        <a class="nav-link" href=" {{ url('/') }} ">Home <span
-                                class="sr-only">(current)</span></a>
+                    <li class="nav-item mr-2 @if ($nav == 'Home') active @endif">
+                        <a class="nav-link" href=" {{ url('/') }} "><i class="bi bi-house-door"></i> Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Softwares</a>
+                    <li class="nav-item mr-2 @if ($nav == 'Softwares') active @endif">
+                        <a class="nav-link" href="{{ route('services.softwares') }}"><i
+                                class="bi bi-window-sidebar"></i>
+                            Softwares</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Designs</a>
+                    <li class="nav-item mr-2 @if ($nav == 'Designs') active @endif">
+                        <a class="nav-link" href="#"><i class="bi bi-bezier"></i> Designs</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown mr-2 @if ($nav == 'Tutorials') active @endif">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-expanded="false">
-                            Tutorials
+                            <i class="bi bi-person-workspace"></i> Tutorials
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('tutorials.article') }}">Articles</a>

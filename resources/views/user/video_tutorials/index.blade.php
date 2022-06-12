@@ -3,6 +3,7 @@
 @section('title')
     Tutorials | Videos
 @endsection
+<?php $nav = 'Tutorials'; ?>
 
 @section('content')
     <!-- Start Header Section -->
