@@ -79,50 +79,70 @@
 
                     <div class="media">
                         <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="{{ asset('asset') }}/images/recent-post/post-02.jpg"
+                            <a href="{{ route('tutorials.view', $R1->id) }}">
+                                <img class="media-object" src="{{ asset('images/articles') . '/' . $R1->image }}"
                                     alt="...">
                             </a>
                         </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"><a href="#">Nulla facilisi integer lacinia sollicitudin massa</a>
+                        <div class="media-body ml-2">
+                            <h4 class="media-heading"><a
+                                    href="{{ route('tutorials.view', $R1->id) }}">{{ $R1->title }}</a>
                             </h4>
                             <ul>
-                                <li><a href="#">Super User</a></li>
-                                <li>15 October 2014</li>
+                                <li><a href="#">{{ $R1->username }}</a></li>
+                                <li><small><i>({{ date('d F, Y', strtotime($R1->post_date)) }})</i></small></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="media">
+                    <div class="media my-3">
                         <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="{{ asset('asset') }}/images/recent-post/post-03.jpg"
+                            <a href="{{ route('services.softwares') }}">
+                                <img class="media-object" src="{{ asset('images/thumbnails') . '/' . $R2->thumb }}"
                                     alt="...">
                             </a>
                         </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"><a href="#">Quisque cursus metus vitae pharetra auctor sem massa</a>
+                        <div class="media-body ml-2">
+                            <h4 class="media-heading"><a
+                                    href="{{ route('services.softwares') }}">{{ $R2->name }}</a>
                             </h4>
                             <ul>
-                                <li><a href="#">Super User</a></li>
-                                <li>15 October 2014</li>
+                                <li><a href="#">{{ $R2->username }}</a></li>
+                                <li><small><i>({{ date('d F, Y', strtotime($R2->post_date)) }})</i></small></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="media">
+                    <div class="media my-3">
                         <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="{{ asset('asset') }}/images/recent-post/post-04.jpg"
+                            <a href="{{ route('services.designs') }}">
+                                <img class="media-object" src="{{ asset('images/thumbnails') . '/' . $R3->thumb }}"
                                     alt="...">
                             </a>
                         </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"><a href="#">Praesent libero sed cursus ante dapibus diam</a></h4>
+                        <div class="media-body ml-2">
+                            <h4 class="media-heading"><a href="{{ route('services.designs') }}">{{ $R3->name }}</a>
+                            </h4>
                             <ul>
-                                <li><a href="#">Super User</a></li>
-                                <li>15 October 2014</li>
+                                <li><a href="#">{{ $R3->username }}</a></li>
+                                <li><small><i>({{ date('d F, Y', strtotime($R3->post_date)) }})</i></small></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="media my-3">
+                        <div class="media-left">
+                            <a href="{{ route('tutorials.video') }}">
+                                <img class="media-object" src="{{ asset('images/thumbnails/video_tutorials.png') }}"
+                                    alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body ml-2">
+                            <h4 class="media-heading"><a href="{{ route('tutorials.video') }}">{{ $R4->title }}</a>
+                            </h4>
+                            <ul>
+                                <li><a href="#">{{ $R4->username }}</a></li>
+                                <li><small><i>({{ date('d F, Y', strtotime($R4->post_date)) }})</i></small></li>
                             </ul>
                         </div>
                     </div>
@@ -152,29 +172,6 @@
 
                 </div>
                 <!-- End Blog categories widget -->
-
-
-                <!-- Start Tag Cloud Widget -->
-                <div class="widget widget-tags">
-
-                    <div class="section-heading-2">
-                        <h3 class="section-title mb-3">
-                            <span>Popular Tags</span>
-                        </h3>
-                    </div>
-
-                    <div class="tagcloud">
-                        <a href="#">Charity</a>
-                        <a href="#">Children</a>
-                        <a href="#">Education</a>
-                        <a href="#">Elderly</a>
-                        <a href="#">Humanity</a>
-                        <a href="#">Women Rights</a>
-                    </div>
-
-                </div>
-                <!-- End Tag Cloud Widget -->
-
 
 
             </div>

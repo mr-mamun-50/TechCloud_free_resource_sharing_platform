@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('title')
-    Softwares | Videos
+    designs | Videos
 @endsection
-<?php $nav = 'Softwares'; ?>
+<?php $nav = 'Designs'; ?>
 
 @section('content')
     <!-- Start Header Section -->
@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Softwares</h1>
+                        <h1>Free Designs</h1>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($softwares as $item)
+                        @foreach ($designs as $item)
                             <tr>
                                 <td>
                                     <div class="media jumbotron py-5 px-4 d-flex align-items-center blog-post">
@@ -66,7 +66,7 @@
                                 </td>
                             </tr>
 
-                            <!-- Modal for download software -->
+                            <!-- Modal for download design -->
                             <div class="modal fade" id="{{ 'staticBackdrop' . $item->id }}" data-backdrop="static"
                                 data-keyboard="false" tabindex="-1"
                                 aria-labelledby="{{ 'staticBackdrop' . $item->id . 'Label' }}" aria-hidden="true">
@@ -122,7 +122,7 @@
                                             </div>
                                             <hr>
                                             <div>
-                                                <a href="{{ asset('softwares') . '/' . $item->soft_file }}"
+                                                <a href="{{ asset('designs') . '/' . $item->source_file }}"
                                                     download=""><button class="btn btn-success btn-block"><i
                                                             class="bi bi-download"></i> Download</button></a>
                                             </div>

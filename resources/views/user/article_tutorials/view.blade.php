@@ -52,7 +52,7 @@
                                     <li><i class="fas fa-tag"></i><a href="#">{{ $article->category_name }}</a></li>
                                     <li><i class="fa fa-tags"></i><a href="#">{{ $article->subcategory_name }}</a>
                                     </li>
-                                    <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
+                                    <li><i class="fa fa-comments"></i><a href="#">{{ $cntcmt }} Comments</a></li>
                                 </ul>
                                 {{-- <ul class="pull-right">
                                     <li>font-size<i class="fa fa-minus-circle"></i><i class="fa fa-plus-circle"></i></li>
@@ -83,9 +83,9 @@
 
 
                         <!-- Start Blog Author Section -->
-                        <div class="blog-author">
+                        <div class="blog-author mb-5">
                             <h3>About The Author</h3>
-                            <div class="media d-flex align-items-center">
+                            <div class="media d-flex align-items-center jumbotron">
                                 <div class="media-left">
                                     <a href="#">
                                         @if ($article->username == 'M R Mamun')
@@ -115,105 +115,54 @@
 
                         <!-- Start Comments Section -->
                         <div id="comments">
-                            <h2 class="comments-title">4 comments</h2>
-                            <ol class="comments-list">
-                                <li>
-                                    <div class="comment-box clearfix">
-                                        <div class="avatar"><img alt=""
-                                                src="{{ asset('asset') }}/images/user-2.png"></div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <span class="comment-by">fghfghjfghj</span>
-                                                <span class="reply-link pull-right"><a href="#">Comment Link</a></span>
+                            <h2 class="comments-title">{{ $cntcmt }} comments</h2>
+                            <ol class="comments-list mb-0">
+                                @foreach ($comment as $item)
+                                    <li>
+                                        <div class="comment-box clearfix py-1">
+                                            <div class="avatar">
+                                                @if ($item->user_image != null)
+                                                    <img src="{{ asset('images/users') . '/' . $item->user_image }}"
+                                                        alt="User">
+                                                @else
+                                                    <img src="{{ asset('images/users/user-icon.png') }}" alt="User">
+                                                @endif
                                             </div>
-                                            <span class="comment-date">Sunday, 15 February 2015 at 20:39</span>
-                                            <p>Dette er en besked</p>
-                                        </div>
-                                    </div>
-
-                                    <ul>
-                                        <li>
-                                            <div class="comment-box clearfix">
-                                                <div class="avatar"><img alt=""
-                                                        src="{{ asset('asset') }}/images/user-2.png"></div>
-                                                <div class="comment-content">
-                                                    <div class="comment-meta">
-                                                        <span class="comment-by">sdfaasdfb</span>
-                                                        <span class="reply-link pull-right"><a href="#">Comment
-                                                                Link</a></span>
-                                                    </div>
-                                                    <span class="comment-date">Sunday, 15 February 2015 20:39</span>
-                                                    <p>sdfadasdfawefasdf a</p>
+                                            <div class="comment-content align-self-center">
+                                                <div class="comment-meta">
+                                                    <span
+                                                        class="comment-by font-weight-bold">{{ $item->username }}</span>
+                                                    <small
+                                                        class="comment-date">({{ date('d F, Y | h:i A', strtotime($item->c_date)) }})</small>
                                                 </div>
+                                                <p><?php echo $item->comment; ?></p>
                                             </div>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li>
-                                    <div class="comment-box clearfix">
-                                        <div class="avatar"><img alt=""
-                                                src="{{ asset('asset') }}/images/user-2.png"></div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <span class="comment-by">sa</span>
-                                                <span class="reply-link pull-right"><a href="#">Comment Link</a></span>
-                                            </div>
-                                            <span class="comment-date">Tuesday, 03 February 2015 06:41</span>
-                                            <p>daaass</p>
                                         </div>
-                                    </div>
-
-                                    <ul>
-                                        <li>
-                                            <div class="comment-box clearfix">
-                                                <div class="avatar"><img alt=""
-                                                        src="{{ asset('asset') }}/images/user-2.png"></div>
-                                                <div class="comment-content">
-                                                    <div class="comment-meta">
-                                                        <span class="comment-by">xc zc</span>
-                                                        <span class="reply-link pull-right"><a href="#">Comment
-                                                                Link</a></span>
-                                                    </div>
-                                                    <span class="comment-date">Wednesday, 10 December 2014 11:42</span>
-                                                    <p>fsfsfs</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-
+                                    </li>
+                                @endforeach
+                                <!-- Start Pagination -->
+                                {{ $comment->links('pagination::bootstrap-5') }}
                             </ol>
 
                             <!-- Start Respond Form -->
                             <div id="respond">
                                 <h2 class="respond-title">Leave a comment</h2>
-                                <span class="form-caution">Make sure you enter the (*) required information where
-                                    indicated. HTML code is not allowed.</span>
-                                <form action="#">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="author">Name<span class="required">*</span></label>
-                                            <input id="author" name="author" type="text" size="30" aria-required="true"
-                                                class="form-control">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="email">Email<span class="required">*</span></label>
-                                            <input id="email" name="author" type="text" size="30" aria-required="true"
-                                                class="form-control">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="url">Website<span class="required">*</span></label>
-                                            <input id="url" name="url" type="text" size="30" aria-required="true"
-                                                class="form-control">
-                                        </div>
-                                    </div>
+
+                                <form action="{{ route('article.comment.store') }}" method="POST">
+                                    @csrf
                                     <div class="row mt-2">
                                         <div class="col-md-12">
-                                            <label for="comment">Add Your Comment</label>
-                                            <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" class="form-control"></textarea>
-                                            <input name="submit" type="submit" id="submit" class="btn btn-primary mt-2"
-                                                value="Submit Comment">
+                                            <input type="hidden" name="post_id" value="{{ $article->id }}">
+
+                                            <textarea name="comment" cols="45" rows="7" aria-required="true"
+                                                class="form-control summernote @error('comment') is-invalid @enderror"></textarea>
+                                            @error('comment')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                            <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
                                         </div>
                                     </div>
                                 </form>
@@ -241,53 +190,72 @@
 
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#">
+                                    <a href="{{ route('tutorials.view', $R1->id) }}">
                                         <img class="media-object"
-                                            src="{{ asset('asset') }}/images/recent-post/post-02.jpg" alt="...">
+                                            src="{{ asset('images/articles') . '/' . $R1->image }}" alt="...">
                                     </a>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Nulla facilisi integer lacinia sollicitudin
-                                            massa</a>
+                                <div class="media-body ml-2">
+                                    <h4 class="media-heading"><a
+                                            href="{{ route('tutorials.view', $R1->id) }}">{{ $R1->title }}</a>
                                     </h4>
                                     <ul>
-                                        <li><a href="#">Super User</a></li>
-                                        <li>15 October 2014</li>
+                                        <li><a href="#">{{ $R1->username }}</a></li>
+                                        <li><small><i>({{ date('d F, Y', strtotime($R1->post_date)) }})</i></small></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="media">
+                            <div class="media my-3">
                                 <div class="media-left">
-                                    <a href="#">
+                                    <a href="{{ route('services.softwares') }}">
                                         <img class="media-object"
-                                            src="{{ asset('asset') }}/images/recent-post/post-03.jpg" alt="...">
+                                            src="{{ asset('images/thumbnails') . '/' . $R2->thumb }}" alt="...">
                                     </a>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Quisque cursus metus vitae pharetra auctor sem
-                                            massa</a>
+                                <div class="media-body ml-2">
+                                    <h4 class="media-heading"><a
+                                            href="{{ route('services.softwares') }}">{{ $R2->name }}</a>
                                     </h4>
                                     <ul>
-                                        <li><a href="#">Super User</a></li>
-                                        <li>15 October 2014</li>
+                                        <li><a href="#">{{ $R2->username }}</a></li>
+                                        <li><small><i>({{ date('d F, Y', strtotime($R2->post_date)) }})</i></small></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="media">
+                            <div class="media my-3">
                                 <div class="media-left">
-                                    <a href="#">
+                                    <a href="{{ route('services.designs') }}">
                                         <img class="media-object"
-                                            src="{{ asset('asset') }}/images/recent-post/post-04.jpg" alt="...">
+                                            src="{{ asset('images/thumbnails') . '/' . $R3->thumb }}" alt="...">
                                     </a>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Praesent libero sed cursus ante dapibus diam</a>
+                                <div class="media-body ml-2">
+                                    <h4 class="media-heading"><a
+                                            href="{{ route('services.designs') }}">{{ $R3->name }}</a>
                                     </h4>
                                     <ul>
-                                        <li><a href="#">Super User</a></li>
-                                        <li>15 October 2014</li>
+                                        <li><a href="#">{{ $R3->username }}</a></li>
+                                        <li><small><i>({{ date('d F, Y', strtotime($R3->post_date)) }})</i></small></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="media my-3">
+                                <div class="media-left">
+                                    <a href="{{ route('tutorials.video') }}">
+                                        <img class="media-object"
+                                            src="{{ asset('images/thumbnails/video_tutorials.png') }}" alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body ml-2">
+                                    <h4 class="media-heading"><a
+                                            href="{{ route('tutorials.video') }}">{{ $R4->title }}</a>
+                                    </h4>
+                                    <ul>
+                                        <li><a href="#">{{ $R4->username }}</a></li>
+                                        <li><small><i>({{ date('d F, Y', strtotime($R4->post_date)) }})</i></small></li>
                                     </ul>
                                 </div>
                             </div>
@@ -317,29 +285,6 @@
 
                         </div>
                         <!-- End Blog categories widget -->
-
-
-                        <!-- Start Tag Cloud Widget -->
-                        <div class="widget widget-tags">
-
-                            <div class="section-heading-2">
-                                <h3 class="section-title mb-3">
-                                    <span>Popular Tags</span>
-                                </h3>
-                            </div>
-
-                            <div class="tagcloud">
-                                <a href="#">Charity</a>
-                                <a href="#">Children</a>
-                                <a href="#">Education</a>
-                                <a href="#">Elderly</a>
-                                <a href="#">Humanity</a>
-                                <a href="#">Women Rights</a>
-                            </div>
-
-                        </div>
-                        <!-- End Tag Cloud Widget -->
-
 
 
                     </div>

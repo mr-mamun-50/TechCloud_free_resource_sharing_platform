@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class TutorialController extends Controller
 {
@@ -20,10 +21,16 @@ class TutorialController extends Controller
 
         $category = DB::table('categories')->get();
 
-        return view('user.article_tutorials.index', compact('articles', 'category'));
+        $R1 = DB::table('articles_tutorial')->latest('post_date')->first();
+        $R2 = DB::table('softwares')->latest('post_date')->first();
+        $R3 = DB::table('designs')->latest('post_date')->first();
+        $R4 = DB::table('video_tutorials')->latest('post_date')->first();
+
+        return view('user.article_tutorials.index', compact('articles', 'category', 'R1', 'R2', 'R3', 'R4'));
     }
 
     public function article_view($id) {
+
         $article = DB::table('articles_tutorial')
         ->leftjoin('categories', 'articles_tutorial.category_id', 'categories.id')
         ->leftjoin('subcategories', 'articles_tutorial.subcategory_id', 'subcategories.id')
@@ -31,11 +38,47 @@ class TutorialController extends Controller
         ->where('articles_tutorial.id', '=', $id)
         ->first();
 
+        $comment = DB::table('article_comments')
+        ->leftjoin('users', 'article_comments.user_id', 'users.id')
+        ->select('article_comments.*', 'users.user_image')
+        ->where('post_id', $article->id)
+        ->orderBy('id', 'DESC')
+        ->paginate(3);
+
+        $cntcmt = DB::table('article_comments')->where('post_id', $article->id)->count();
+
         $category = DB::table('categories')->get();
         $author = DB::table('users')->where('id', $article->user_id)->first();
 
-        return view('user.article_tutorials.view', compact('article', 'category', 'author'));
+        $R1 = DB::table('articles_tutorial')->latest('post_date')->first();
+        $R2 = DB::table('softwares')->latest('post_date')->first();
+        $R3 = DB::table('designs')->latest('post_date')->first();
+        $R4 = DB::table('video_tutorials')->latest('post_date')->first();
+
+        return view('user.article_tutorials.view', compact('article', 'category', 'author', 'comment', 'cntcmt', 'R1', 'R2', 'R3', 'R4'));
     }
+
+    //__Article_comments
+    public function comment_store(Request $request) {
+
+        $validated = $request->validate([
+            'comment' => 'required'
+        ]);
+        $data = [
+            'post_id' => $request->post_id,
+            'user_id' => Auth::user()->id,
+            'username' => Auth::user()->name,
+            'useremail' => Auth::user()->email,
+            'comment' => $request->comment,
+            'c_date' => now('6.0').date(''),
+        ];
+
+        DB::table('article_comments')->insert($data);
+
+        $notify = ['message'=>'New article successfully added!', 'alert-type'=>'success'];
+        return redirect()->back()->with($notify);
+    }
+
 
     // __Video tutorials
     public function video_index() {
@@ -50,6 +93,11 @@ class TutorialController extends Controller
 
         $category = DB::table('categories')->get();
 
-        return view('user.video_tutorials.index', compact('videos', 'category'));
+        $R1 = DB::table('articles_tutorial')->latest('post_date')->first();
+        $R2 = DB::table('softwares')->latest('post_date')->first();
+        $R3 = DB::table('designs')->latest('post_date')->first();
+        $R4 = DB::table('video_tutorials')->latest('post_date')->first();
+
+        return view('user.video_tutorials.index', compact('videos', 'category', 'R1', 'R2', 'R3', 'R4'));
     }
 }

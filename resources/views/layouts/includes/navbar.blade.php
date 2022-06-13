@@ -84,7 +84,9 @@
                             Softwares</a>
                     </li>
                     <li class="nav-item mr-2 @if ($nav == 'Designs') active @endif">
-                        <a class="nav-link" href="#"><i class="bi bi-bezier"></i> Designs</a>
+                        <a class="nav-link" href="{{ route('services.designs') }}"><i
+                                class="bi bi-bezier"></i>
+                            Designs</a>
                     </li>
                     <li class="nav-item dropdown mr-2 @if ($nav == 'Tutorials') active @endif">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -101,8 +103,13 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('images/users') . '/' . Auth::user()->user_image }}" alt="user"
-                                        class="border" style="height: 35px; width: 35px; border-radius: 50%">
+                                    @if (Auth::user()->user_image)
+                                        <img src="{{ asset('images/users') . '/' . Auth::user()->user_image }}" alt="user"
+                                            class="border" style="height: 35px; width: 35px; border-radius: 50%">
+                                    @else
+                                        <img src="{{ asset('images/users/user-icon.png') }}" alt="user"
+                                            class="border" style="height: 35px; width: 35px; border-radius: 50%">
+                                    @endif
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">My profile</a>

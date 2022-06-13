@@ -40,8 +40,14 @@ Route::get('/tutorials/article/{id}', [TutorialController::class, 'article_view'
 Route::get('/tutorials/video', [TutorialController::class, 'video_index'])->name('tutorials.video');
 
 
-Route::get('/services/softwares', [ServiceController::class, 'softwares'])->name('services.softwares');
+Route::group(['middleware' => 'auth'], function() {
 
+    Route::get('/services/softwares', [ServiceController::class, 'softwares'])->name('services.softwares');
+    Route::get('/services/designs', [ServiceController::class, 'designs'])->name('services.designs');
+
+    Route::post('/tutorials/article/comment/store', [TutorialController::class, 'comment_store'])->name('article.comment.store');
+
+});
 
 
 

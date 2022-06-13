@@ -165,13 +165,22 @@ nav ul .nav-item:hover {
 /* End Section Title */
 
 .page-header {
-    background: url(../images/banner.jpg) no-repeat;
+    background: linear-gradient(
+            to right,
+            rgba(255, 162, 0, 0),
+            rgba(31, 140, 235, 0.95),
+            rgba(255, 162, 0, 0)
+        ),
+        url(../images/Vector_60.jpg) no-repeat;
+    background-size: cover;
+    background-position-y: center;
     padding: 50px 0;
     margin-top: 80px;
 }
 
 .page-header h1 {
     color: #fff;
+    text-align: center;
 }
 
 /*------------------------------------------*/
@@ -1776,8 +1785,8 @@ h1.post-title a {
 }
 
 .blog-author .media img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     margin-right: 20px;
     border-radius: 8px;
     border: 6px solid #f2f2f2;
