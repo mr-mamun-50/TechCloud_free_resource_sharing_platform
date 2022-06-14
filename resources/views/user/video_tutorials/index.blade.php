@@ -29,39 +29,52 @@
         <div class="row">
 
             <!-- Start Blog Body Section -->
-            <div class="col-md-8 blog-body">
+            <div class="col-md-8 blog-body mb-5">
+                <table id="myTable" class="table table-borderless table-sm">
+                    <thead>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($videos as $item)
+                            <tr>
+                                <td>
+                                    <!-- Start Blog post -->
+                                    <div class="blog-post card">
+                                        <div class="post-img">
+                                            <iframe width="100%" height="420"
+                                                src="https://www.youtube.com/embed/{{ $item->video_link }}"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                        <div class="card-body">
+                                            <h1 class="post-title"><a href="#">{{ $item->title }}</a></h1>
 
-                @foreach ($videos as $item)
-                    <!-- Start Blog post -->
-                    <div class="blog-post card">
-                        <div class="post-img">
-                            <iframe width="100%" height="420" src="https://www.youtube.com/embed/{{ $item->video_link }}"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="post-title"><a href="#">{{ $item->title }}</a></h1>
+                                            <ul class="post-meta">
+                                                <li><i class="fas fa-clock"></i>
+                                                    {{ date('d F, Y | h:i A', strtotime($item->post_date)) }}
+                                                </li>
+                                                <li><i class="fa fa-user"></i><a href="#">{{ $item->username }}</a>
+                                                </li>
+                                                <li><i class="fas fa-tag"></i><a
+                                                        href="#">{{ $item->category_name }}</a></li>
+                                                <li><i class="fa fa-tags"></i><a
+                                                        href="#">{{ $item->subcategory_name }}</a>
+                                                </li>
+                                            </ul>
+                                            <hr>
+                                            <code>{{ $item->tags }}</code>
+                                        </div>
+                                    </div>
+                                    <!-- End Blog Post -->
+                                </td>
+                            </tr>
+                        @endforeach
 
-                            <ul class="post-meta">
-                                <li><i class="fas fa-clock"></i>
-                                    {{ date('d F, Y | h:i A', strtotime($item->post_date)) }}
-                                </li>
-                                <li><i class="fa fa-user"></i><a href="#">{{ $item->username }}</a></li>
-                                <li><i class="fas fa-tag"></i><a href="#">{{ $item->category_name }}</a></li>
-                                <li><i class="fa fa-tags"></i><a href="#">{{ $item->subcategory_name }}</a></li>
-                            </ul>
-                            <hr>
-                            <code>{{ $item->tags }}</code>
-                        </div>
-                    </div>
-                    <!-- End Blog Post -->
-                @endforeach
-
-
-                <!-- Start Pagination -->
-                {{ $videos->links('pagination::bootstrap-5') }}
-
+                    </tbody>
+                </table>
             </div>
             <!-- End Blog Body Section -->
 

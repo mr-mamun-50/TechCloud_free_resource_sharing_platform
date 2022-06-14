@@ -29,12 +29,12 @@
         <div class="row">
 
             <!-- Start Blog Body Section -->
-            <div class="col-md-9 blog-body">
+            <div class="col-md-9 blog-body mb-5">
 
-                <table id="myTable" class="table table-light">
+                <table id="myTable" class="table table-borderless table-sm">
                     <thead>
                         <tr>
-                            <td>order</td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody>

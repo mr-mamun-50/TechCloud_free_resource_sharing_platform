@@ -29,45 +29,58 @@
         <div class="row">
 
             <!-- Start Blog Body Section -->
-            <div class="col-md-8 blog-body">
+            <div class="col-md-8 blog-body mb-5">
+                <table id="myTable" class="table table-borderless table-sm">
+                    <thead>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($articles as $item)
+                            <tr>
+                                <td>
+                                    <!-- Start Blog post -->
+                                    <div class="blog-post card">
+                                        <div class="post-img">
+                                            <img src="{{ asset('images/articles') . '/' . $item->image }}"
+                                                class="img-responsive" alt="Blog image">
+                                        </div>
+                                        <div class="card-body">
+                                            <h1 class="post-title"><a
+                                                    href="{{ route('tutorials.view', $item->id) }}">{{ $item->title }}</a>
+                                            </h1>
 
-                @foreach ($articles as $item)
-                    <!-- Start Blog post -->
-                    <div class="blog-post card">
-                        <div class="post-img">
-                            <img src="{{ asset('images/articles') . '/' . $item->image }}" class="img-responsive"
-                                alt="Blog image">
-                        </div>
-                        <div class="card-body">
-                            <h1 class="post-title"><a
-                                    href="{{ route('tutorials.view', $item->id) }}">{{ $item->title }}</a></h1>
-
-                            <ul class="post-meta">
-                                <li><i class="fas fa-clock"></i>
-                                    {{ date('d F, Y | h:i A', strtotime($item->post_date)) }}
-                                </li>
-                                <li><i class="fa fa-user"></i><a href="#">{{ $item->username }}</a></li>
-                                <li><i class="fas fa-tag"></i><a href="#">{{ $item->category_name }}</a></li>
-                                <li><i class="fa fa-tags"></i><a href="#">{{ $item->subcategory_name }}</a></li>
-                                <li><i class="fa fa-comments"></i><a
-                                        href="#">{{ DB::table('article_comments')->where('post_id', $item->id)->count() }}
-                                        Comments</a></li>
-                            </ul>
-                            <hr>
-                            {{-- <p class="post-content"><?php echo substr($item->description, 0, 200); ?>...</p> --}}
-                            <a href="{{ route('tutorials.view', $item->id) }}" class="btn btn-secondary">View article <i
-                                    class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- End Blog Post -->
-                @endforeach
-
-
-                <!-- Start Pagination -->
-                {{ $articles->links('pagination::bootstrap-5') }}
-
+                                            <ul class="post-meta">
+                                                <li><i class="fas fa-clock"></i>
+                                                    {{ date('d F, Y | h:i A', strtotime($item->post_date)) }}
+                                                </li>
+                                                <li><i class="fa fa-user"></i><a href="#">{{ $item->username }}</a>
+                                                </li>
+                                                <li><i class="fas fa-tag"></i><a
+                                                        href="#">{{ $item->category_name }}</a>
+                                                </li>
+                                                <li><i class="fa fa-tags"></i><a
+                                                        href="#">{{ $item->subcategory_name }}</a>
+                                                </li>
+                                                <li><i class="fa fa-comments"></i><a
+                                                        href="#">{{ DB::table('article_comments')->where('post_id', $item->id)->count() }}
+                                                        Comments</a></li>
+                                            </ul>
+                                            <hr>
+                                            {{-- <p class="post-content"><?php echo substr($item->description, 0, 200); ?>...</p> --}}
+                                            <a href="{{ route('tutorials.view', $item->id) }}"
+                                                class="btn btn-secondary">View
+                                                article <i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <!-- End Blog Post -->
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            <!-- End Blog Body Section -->
 
             <!-- Start Sidebar Section -->
             <div class="col-md-4 sidebar right-sidebar">

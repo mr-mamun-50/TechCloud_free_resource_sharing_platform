@@ -17,7 +17,7 @@ class TutorialController extends Controller
         ->select('articles_tutorial.*', 'categories.category_name', 'subcategories.subcategory_name')
         ->where('status', 1)
         ->orderBy('id', 'DESC')
-        ->paginate(5);
+        ->get();
 
         $category = DB::table('categories')->get();
 
@@ -89,7 +89,7 @@ class TutorialController extends Controller
         ->select('video_tutorials.*', 'categories.category_name', 'subcategories.subcategory_name')
         ->where('status', 1)
         ->orderBy('id', 'DESC')
-        ->paginate(5);
+        ->get();
 
         $category = DB::table('categories')->get();
 

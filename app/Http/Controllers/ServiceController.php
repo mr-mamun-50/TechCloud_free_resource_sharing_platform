@@ -16,7 +16,7 @@ class ServiceController extends Controller
         ->select('softwares.*', 'categories.category_name', 'subcategories.subcategory_name')
         ->where('status', 1)
         ->orderBy('id', 'DESC')
-        ->paginate(5);
+        ->get();
 
         $category = DB::table('categories')->get();
 
@@ -37,7 +37,7 @@ class ServiceController extends Controller
         ->select('designs.*', 'categories.category_name', 'subcategories.subcategory_name')
         ->where('status', 1)
         ->orderBy('id', 'DESC')
-        ->paginate(5);
+        ->get();
 
         $category = DB::table('categories')->get();
 
