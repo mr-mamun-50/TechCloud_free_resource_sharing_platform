@@ -550,7 +550,7 @@ a.navbar-brand {
     border-color: #fff;
     color: #fff;
     border-radius: 0;
-    width: 150px;
+    /* width: 150px; */
 }
 
 .banner .btn-primary:hover {

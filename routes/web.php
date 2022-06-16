@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\SoftwareController;
 use App\Http\Controllers\Admin\DesignsController;
 use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Admin\User\AboutController;
+use App\Http\Controllers\Admin\User\TeamController;
 
 
 /*
@@ -76,4 +78,8 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::resource('admin/softwares', SoftwareController::class);
     Route::resource('admin/designs', DesignsController::class);
+
+    Route::resource('admin/about', AboutController::class);
+    Route::resource('admin/team', TeamController::class);
+
 });

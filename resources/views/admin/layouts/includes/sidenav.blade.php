@@ -6,7 +6,7 @@
         <ul class="pcoded-item pcoded-left-item">
             <li class="@if ($menu == 'dashboard') active @endif">
                 <a href=" {{ route('admin.dashboard') }} ">
-                    <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                    <span class="pcoded-micon"><i class="bi bi-speedometer2"></i><b>D</b></span>
                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                     <span class="pcoded-mcaret"></span>
                 </a>
@@ -116,6 +116,37 @@
                 </a>
             </li>
         </ul>
+
+
+        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">User section</div>
+
+        <ul class="pcoded-item pcoded-left-item">
+
+            <li class="pcoded-hasmenu @if ($menu == 'homepage') active pcoded-trigger @endif">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="bi bi-house-door"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.basic-components.main">Homepage</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="@if ($submenu == 'about') active @endif">
+                        <a href=" {{ route('about.index') }} ">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">About</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                    <li class="@if ($submenu == 'team') active @endif">
+                        <a href=" {{ route('team.index') }} ">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Team</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
 
     </div>
 </nav>
