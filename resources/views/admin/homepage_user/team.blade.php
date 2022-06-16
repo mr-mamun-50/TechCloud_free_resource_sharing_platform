@@ -85,11 +85,56 @@ $submenu = 'team'; ?>
                                         <input type="hidden" name="_method" value="put">
                                         <div class="modal-body">
 
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input class="form-control" type="text" name="name"
+                                                    value="{{ $item->name }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="designation">Designation</label>
+                                                <input class="form-control" type="text" name="designation"
+                                                    value="{{ $item->designation }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="image">Photo</label>
+                                                <input class="form-control" type="file" name="image">
+                                                <input type="hidden" name="old_image" value="{{ $item->image }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="quote">Quote</label>
+                                                <textarea name="quote" cols="30" rows="5" class="form-control">{{ $item->quote }}</textarea>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label for="facebook">Facebook</label>
+                                                    <input class="form-control" type="text" name="facebook"
+                                                        value="{{ $item->facebook }}">
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label for="twitter">Twitter</label>
+                                                    <input class="form-control" type="text" name="twitter"
+                                                        value="{{ $item->twitter }}">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label for="github">Github</label>
+                                                    <input class="form-control" type="text" name="github"
+                                                        value="{{ $item->github }}">
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label for="linkedin">Linkedin</label>
+                                                    <input class="form-control" type="text" name="linkedin"
+                                                        value="{{ $item->linkedin }}">
+                                                </div>
+                                            </div>
 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="submit" class="btn hor-grd btn-grd-primary">Update
-                                                Software</button>
+                                                Info</button>
                                         </div>
                                     </form>
                                 </div>

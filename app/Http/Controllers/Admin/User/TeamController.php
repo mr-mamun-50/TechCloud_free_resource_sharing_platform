@@ -103,7 +103,36 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = [
+            'name' => $request->name,
+            'designation' => $request->designation,
+            'quote' => $request->quote,
+            'facebook' => $request->facebook,
+            'twitter' => $request->twitter,
+            'github' => $request->github,
+            'linkedin' => $request->linkedin
+        ];
+        $name_slug = Str::of($request->name)->slug('-');
+
+        if($request->image) {
+            if(File::exists(public_path('images/homepage/'). $request->old_image)) {
+                File::delete(public_path('images/homepage/'). $request->old_image);
+            }
+
+            $image = $request->file('image');
+            $input['image'] = 'TechCloud'.'_'.time().'-'.$name_slug.'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('images/homepage');
+            $imgFile = Image::make($image->getRealPath());
+            $imgFile->resize(300, 300)->save($destinationPath.'/'.$input['image']);
+            $data['image'] = $input['image'];
+        }
+        else {
+            $data['image'] = $request->old_image;
+        }
+        DB::table('team')->where('id', $id)->update($data);
+
+        $notify = ['message'=>'Member successfully added!', 'alert-type'=>'success'];
+        return redirect()->back()->with($notify);
     }
 
     /**
@@ -114,6 +143,13 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $member = DB::table('team')->where('id', $id)->first();
+        if(File::exists(public_path('images/homepage/'). $member->image)) {
+            File::delete(public_path('images/homepage/'). $member->image);
+        }
+        DB::table('team')->where('id',$id)->delete();
+
+        $notify = ['message'=>'Member successfully deleted!', 'alert-type'=>'success'];
+        return redirect()->back()->with($notify);
     }
 }

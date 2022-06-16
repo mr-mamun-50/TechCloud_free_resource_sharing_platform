@@ -7,7 +7,7 @@
 
 @php
 $about = DB::table('about')->first();
-$team = DB::table('team')->first();
+$team = DB::table('team')->get();
 @endphp
 
 @section('content')
@@ -84,133 +84,33 @@ $team = DB::table('team')->first();
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
-                    <div class="team-member">
-                        <img src="{{ asset('images/homepage') . '/' . $team->image }}" class="img-responsive" alt="">
-                        <div class="team-details">
-                            <h4>{{ $team->name }}</h4>
-                            <p>{{ $team->designation }}</p>
-                            <ul>
-                                <li><a href="{{ $team->facebook }}" target="blank"><i class="fab fa-facebook"></i></a>
-                                </li>
-                                <li><a href="{{ $team->twitter }}" target="blank"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="{{ $team->github }}" target="blank"><i class="fab fa-github"></i></a></li>
-                                <li><a href="{{ $team->linkedin }}" target="blank"><i class="fab fa-linkedin"></i></a>
-                                </li>
-                            </ul>
+                @foreach ($team as $member)
+                    <div class="col-md-3 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+                        <div class="team-member">
+                            <img src="{{ asset('images/homepage') . '/' . $member->image }}" class="img-responsive"
+                                alt="">
+                            <div class="team-details">
+                                <h4>{{ $member->name }}</h4>
+                                <p>{{ $member->designation }}</p>
+                                <ul>
+                                    <li><a href="{{ $member->facebook }}" target="blank"><i
+                                                class="fab fa-facebook"></i></a></li>
+                                    <li><a href="{{ $member->twitter }}" target="blank"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                    <li><a href="{{ $member->github }}" target="blank"><i class="fab fa-github"></i></a>
+                                    </li>
+                                    <li><a href="{{ $member->linkedin }}" target="blank"><i
+                                                class="fab fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div><!-- /.col-md-3 -->
+                @endforeach
             </div>
         </div>
     </section>
     <!-- End Team Member Section -->
 
-
-    <!-- Start Portfolio Section -->
-    {{-- <section id="portfolio" class="portfolio-section-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title text-center wow fadeInDown" data-wow-duration="2s" data-wow-delay="50ms">
-                        <h2>Our Portfolio</h2>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-
-                    <!-- Start Portfolio items -->
-                    <ul id="portfolio-list">
-                        <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
-                            <div class="portfolio-item">
-                                <img src="{{ asset('asset') }}/images/portfolio/img1.jpg" class="img-responsive" alt="" />
-                                <div class="portfolio-caption">
-                                    <h4>Portfolio Title</h4>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                        praesentium</p>
-                                    <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i
-                                            class="fa fa-magic"></i></a>
-                                    <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="600ms">
-                            <div class="portfolio-item">
-                                <img src="{{ asset('asset') }}/images/portfolio/img2.jpg" class="img-responsive" alt="" />
-                                <div class="portfolio-caption">
-                                    <h4>Portfolio Title</h4>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                        praesentium</p>
-                                    <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i
-                                            class="fa fa-magic"></i></a>
-                                    <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="900ms">
-                            <div class="portfolio-item">
-                                <img src="{{ asset('asset') }}/images/portfolio/img3.jpg" class="img-responsive" alt="" />
-                                <div class="portfolio-caption">
-                                    <h4>Portfolio Title</h4>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                        praesentium</p>
-                                    <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i
-                                            class="fa fa-magic"></i></a>
-                                    <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1200ms">
-                            <div class="portfolio-item">
-                                <img src="{{ asset('asset') }}/images/portfolio/img4.jpg" class="img-responsive" alt="" />
-                                <div class="portfolio-caption">
-                                    <h4>Portfolio Title</h4>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                        praesentium</p>
-                                    <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i
-                                            class="fa fa-magic"></i></a>
-                                    <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1500ms">
-                            <div class="portfolio-item">
-                                <img src="{{ asset('asset') }}/images/portfolio/img5.jpg" class="img-responsive" alt="" />
-                                <div class="portfolio-caption">
-                                    <h4>Portfolio Title</h4>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                        praesentium</p>
-                                    <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i
-                                            class="fa fa-magic"></i></a>
-                                    <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1800ms">
-                            <div class="portfolio-item">
-                                <img src="{{ asset('asset') }}/images/portfolio/img6.jpg" class="img-responsive"
-                                    alt="" />
-                                <div class="portfolio-caption">
-                                    <h4>Portfolio Title</h4>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                        praesentium</p>
-                                    <a href="#portfolio-modal" data-toggle="modal" class="link-1"><i
-                                            class="fa fa-magic"></i></a>
-                                    <a href="#" class="link-2"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                        </li>
-
-
-                    </ul>
-                    <!-- End Portfolio items -->
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <!-- End Portfolio Section -->
 
 
     <!-- Start Service Section -->
@@ -253,34 +153,6 @@ $team = DB::table('team')->first();
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="services-post">
-                        <a href="#"><i class="fab fa-wordpress"></i></a>
-                        <h2>RESPONSIVE DESIGN</h2>
-                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="services-post">
-                        <a href="#"><i class="fab fa-forumbee"></i></a>
-                        <h2>RESPONSIVE DESIGN</h2>
-                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="services-post">
-                        <a href="#"><i class="fa fa-bicycle"></i></a>
-                        <h2>RESPONSIVE DESIGN</h2>
-                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="services-post">
-                        <a href="#"><i class="fab fa-foursquare"></i></a>
-                        <h2>RESPONSIVE DESIGN</h2>
-                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -294,38 +166,15 @@ $team = DB::table('team')->first();
             <div class="row">
                 <div class="col-md-12">
                     <div class="testimonial-wrapper">
-                        <div class="testimonial-item">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                                architecto beatae vitae dicta sunt explicabo. </p>
-                            <img src="{{ asset('asset') }}/images/team/team-1.jpg" alt="Testimonial images">
-                            <h5>John Doe</h5>
-                            <div class="desgnation">CEO, ThemeBean</div>
-                        </div>
-                        <div class="testimonial-item">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                                architecto beatae vitae dicta sunt explicabo.</p>
-                            <img src="{{ asset('asset') }}/images/team/team-2.jpg" alt="Testimonial images">
-                            <h5>John Doe</h5>
-                            <div class="desgnation">CEO, ThemeBean</div>
-                        </div>
-                        <div class="testimonial-item">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                                architecto beatae vitae dicta sunt explicabo.</p>
-                            <img src="{{ asset('asset') }}/images/team/team-3.jpg" alt="Testimonial images">
-                            <h5>John Doe</h5>
-                            <div class="desgnation">CEO, ThemeBean</div>
-                        </div>
-                        <div class="testimonial-item">
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                                architecto beatae vitae dicta sunt explicabo.</p>
-                            <img src="{{ asset('asset') }}/images/team/team-4.jpg" alt="Testimonial images">
-                            <h5>John Doe</h5>
-                            <div class="desgnation">CEO, ThemeBean</div>
-                        </div>
+                        @foreach ($team as $member)
+                            <div class="testimonial-item">
+                                <p>{{ $member->quote }}</p>
+                                <img src="{{ asset('images/homepage') . '/' . $member->image }}"
+                                    alt="Testimonial images">
+                                <h5>{{ $member->name }}</h5>
+                                <div class="desgnation">{{ $member->designation }}</div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
