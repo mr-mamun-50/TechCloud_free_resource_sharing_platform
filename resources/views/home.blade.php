@@ -127,28 +127,28 @@ $team = DB::table('team')->get();
             <div class="row">
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="bi bi-microsoft"></i></a>
+                        <a href="{{ route('services.softwares') }}"><i class="bi bi-microsoft"></i></a>
                         <h2>PREMIUM SOFTWARES FOR FREE</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="fas fa-bezier-curve"></i></a>
+                        <a href="{{ route('services.designs') }}"><i class="fas fa-bezier-curve"></i></a>
                         <h2>PREMIUM DESIGNS FOR FREE</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="bi bi-newspaper"></i></a>
+                        <a href="{{ route('tutorials.article') }}"><i class="bi bi-newspaper"></i></a>
                         <h2>VARIOUS ARTICLES</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="services-post">
-                        <a href="#"><i class="fas fa-chalkboard-teacher"></i></a>
+                        <a href="{{ route('tutorials.video') }}"><i class="fas fa-chalkboard-teacher"></i></a>
                         <h2>FREE CRASH COURCES</h2>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
                     </div>

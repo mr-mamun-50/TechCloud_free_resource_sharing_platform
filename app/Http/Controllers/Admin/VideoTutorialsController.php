@@ -36,9 +36,7 @@ class VideoTutorialsController extends Controller
      */
     public function create()
     {
-        $category = DB::table('categories')->get();
 
-        return view('admin.video_tutorial.create', compact('category'));
     }
 
     /**

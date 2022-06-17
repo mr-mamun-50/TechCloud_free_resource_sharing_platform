@@ -43,6 +43,9 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Summernote -->
 <script src="{{ asset('adm') }}/plugins/summernote/summernote-bs4.min.js"></script>
 
+<!-- Google charts -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 
 <script>
     $('.delete').click(function(event) {
@@ -63,25 +66,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             }
         })
     });
-
-    // $(document).on("click", ".delete", function(e) {
-    //     e.preventDefault();
-    //     var link = $(this).attr("href");
-    //     swal({
-    //             title: "Do you want to delete this category?",
-    //             text: "Once deleted, you will not be able to recover this category!",
-    //             icon: "warning",
-    //             buttons: true,
-    //             dangerMode: true,
-    //         })
-    //         .then((willDelete) => {
-    //             if (willDelete) {
-    //                 window.location.href = link;
-    //             } else {
-    //                 swal("Your category is safe!");
-    //             }
-    //         });
-    // });
 </script>
 <script>
     $('.logout').click(function(event) {
@@ -150,4 +134,95 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         tabsize: 4,
         height: 200
     });
+</script>
+
+
+<script type="text/javascript">
+    google.charts.load('current', {
+        'packages': ['bar']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Services', 'Numbers'],
+            ['Software',
+                <?php
+                if (isset($soft_cnt)) {
+                    echo $soft_cnt;
+                }
+                ?>
+            ],
+            ['Designs',
+                <?php
+                if (isset($des_cnt)) {
+                    echo $des_cnt;
+                }
+                ?>
+            ],
+            ['Articles',
+                <?php
+                if (isset($artcl_cnt)) {
+                    echo $artcl_cnt;
+                }
+                ?>
+            ],
+            ['Videos',
+                <?php
+                if (isset($video_cnt)) {
+                    echo $video_cnt;
+                }
+                ?>
+            ]
+        ]);
+
+        var options = {
+            bar: {
+                groupWidth: "50%"
+            }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+</script>
+<script type="text/javascript">
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Articles', 'Comments'],
+            ['Commented',
+                <?php
+                if (isset($cmnt_post_cnt)) {
+                    echo $cmnt_post_cnt;
+                }
+                ?>
+            ],
+            ['Not Commented',
+                <?php
+                if (isset($uncmnt_posts)) {
+                    echo $uncmnt_posts;
+                }
+                ?>
+            ]
+        ]);
+
+        var options = {
+            // title: 'Comments',
+            is3D: true,
+            chartArea: {
+                width: 400,
+                height: 300
+            }
+        };
+
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+    }
 </script>

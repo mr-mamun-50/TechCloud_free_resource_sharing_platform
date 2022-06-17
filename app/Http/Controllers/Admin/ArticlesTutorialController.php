@@ -38,9 +38,7 @@ class ArticlesTutorialController extends Controller
      */
     public function create()
     {
-        $category = DB::table('categories')->get();
 
-        return view('admin.articles_tutorial.create', compact('category'));
     }
 
     /**
