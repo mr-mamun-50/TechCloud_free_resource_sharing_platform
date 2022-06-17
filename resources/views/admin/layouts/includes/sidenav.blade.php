@@ -122,6 +122,14 @@
 
         <ul class="pcoded-item pcoded-left-item">
 
+            <li class="@if ($menu == 'Feedback') active @endif">
+                <a href=" {{ route('feedback.index') }} ">
+                    <span class="pcoded-micon"><i class="bi bi-rss"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.dash.main">Users Feedback</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
+
             <li class="pcoded-hasmenu @if ($menu == 'homepage') active pcoded-trigger @endif">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="bi bi-house-door"></i></span>

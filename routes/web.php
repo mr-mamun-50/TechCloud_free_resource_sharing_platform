@@ -13,6 +13,7 @@ use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\User\AboutController;
 use App\Http\Controllers\Admin\User\TeamController;
+use App\Http\Controllers\Admin\User\FeedbackController;
 
 
 /*
@@ -49,6 +50,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::post('/tutorials/article/comment/store', [TutorialController::class, 'comment_store'])->name('article.comment.store');
 
+    Route::post('/feedback/create', [FeedbackController::class, 'store'])->name('feedback.store');
+
 });
 
 
@@ -81,5 +84,8 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::resource('admin/about', AboutController::class);
     Route::resource('admin/team', TeamController::class);
+
+    Route::get('admin/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+    Route::delete('admin/destroy/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
 
 });
