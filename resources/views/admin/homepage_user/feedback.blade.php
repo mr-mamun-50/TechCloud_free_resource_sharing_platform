@@ -27,7 +27,7 @@ $submenu = ''; ?>
                         <tr>
                             <td>{{ ++$index }}</td>
                             <td> <img src="{{ asset('images/users') . '/' . $item->user_image }}" alt="Photo"
-                                    style="width: 100px"> </td>
+                                    class="rounded-circle" style="width: 80px"> </td>
                             <td>
                                 <b>{{ $item->name }} </b><br><br>
                                 Email: <a href="mailto:{{ $item->email }}" target="blank">{{ $item->email }}</a>

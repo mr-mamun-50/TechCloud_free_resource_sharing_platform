@@ -6,12 +6,30 @@
 $submenu = ''; ?>
 
 @php
-$soft_cnt = DB::table('softwares')->count('id');
-$des_cnt = DB::table('designs')->count('id');
+$soft_cnt = DB::table('softwares')
+    ->where('status', 1)
+    ->count('id');
+$soft_cnt_priv = DB::table('softwares')
+    ->where('status', null)
+    ->count('id');
+$des_cnt = DB::table('designs')
+    ->where('status', 1)
+    ->count('id');
+$des_cnt_priv = DB::table('designs')
+    ->where('status', null)
+    ->count('id');
 $artcl_cnt = DB::table('articles_tutorial')
     ->where('status', 1)
     ->count('id');
-$video_cnt = DB::table('video_tutorials')->count('id');
+$artcl_cnt_priv = DB::table('articles_tutorial')
+    ->where('status', null)
+    ->count('id');
+$video_cnt = DB::table('video_tutorials')
+    ->where('status', 1)
+    ->count('id');
+$video_cnt_priv = DB::table('video_tutorials')
+    ->where('status', null)
+    ->count('id');
 
 $cmnt_cnt = DB::table('article_comments')->count('comment');
 $cmnt_post_cnt = DB::table('article_comments')
@@ -38,7 +56,7 @@ $admins = DB::table('admins')
                         <h6 class="m-b-20">Softwares</h6>
                         <h2 class="text-right"><i class="bi bi-microsoft f-left"></i><span>{{ $soft_cnt }}</span>
                         </h2>
-                        {{-- <p class="m-b-0">Completed Orders<span class="f-right">351</span></p> --}}
+                        <p class="m-b-0">Private<span class="f-right">{{ $soft_cnt_priv }}</span></p>
                     </div>
                 </div>
             </div>
@@ -48,7 +66,7 @@ $admins = DB::table('admins')
                         <h6 class="m-b-20">Designs</h6>
                         <h2 class="text-right"><i class="fas fa-bezier-curve f-left"></i><span>{{ $des_cnt }}</span>
                         </h2>
-                        {{-- <p class="m-b-0">This Month<span class="f-right">213</span></p> --}}
+                        <p class="m-b-0">Private<span class="f-right">{{ $des_cnt_priv }}</span></p>
                     </div>
                 </div>
             </div>
@@ -58,7 +76,7 @@ $admins = DB::table('admins')
                         <h6 class="m-b-20">Articles</h6>
                         <h2 class="text-right"><i class="bi bi-newspaper f-left"></i><span>{{ $artcl_cnt }}</span>
                         </h2>
-                        {{-- <p class="m-b-0">This Month<span class="f-right">$5,032</span></p> --}}
+                        <p class="m-b-0">Private<span class="f-right">{{ $artcl_cnt_priv }}</span></p>
                     </div>
                 </div>
             </div>
@@ -69,7 +87,7 @@ $admins = DB::table('admins')
                         <h2 class="text-right"><i
                                 class="fas fa-chalkboard-teacher f-left"></i><span>{{ $video_cnt }}</span>
                         </h2>
-                        {{-- <p class="m-b-0">This Month<span class="f-right">$542</span></p> --}}
+                        <p class="m-b-0">Private<span class="f-right">{{ $video_cnt_priv }}</span></p>
                     </div>
                 </div>
             </div>
