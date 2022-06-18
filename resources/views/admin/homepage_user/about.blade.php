@@ -41,7 +41,7 @@ $submenu = 'about'; ?>
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="image">Image <i><small>(4:3)</small></i></label>
-                            <input class="form-control-file" type="file" name="image">
+                            <input class="form-control" type="file" name="image">
                             <input type="hidden" name="old_image" value="{{ $about->image }}">
                         </div>
                     </div>

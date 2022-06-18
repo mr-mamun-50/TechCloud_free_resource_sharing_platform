@@ -213,11 +213,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         ]);
 
         var options = {
-            // title: 'Comments',
-            is3D: true,
+            // title: 'Total Comments: ',
+            // is3D: true,
+            pieHole: 0.4,
             chartArea: {
-                width: 400,
-                height: 300
+                width: '100%',
+                height: '90%'
             }
         };
 
