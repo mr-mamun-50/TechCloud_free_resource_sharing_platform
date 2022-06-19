@@ -26,7 +26,7 @@ $submenu = ''; ?>
                     @foreach ($feedback as $index => $item)
                         <tr>
                             <td>{{ ++$index }}</td>
-                            <td> <img src="{{ asset('images/users') . '/' . $item->user_image }}" alt="Photo"
+                            <td> <img src="{{ asset('public/images/users') . '/' . $item->user_image }}" alt="Photo"
                                     class="rounded-circle" style="width: 80px"> </td>
                             <td>
                                 <b>{{ $item->name }} </b><br><br>

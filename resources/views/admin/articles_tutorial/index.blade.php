@@ -10,8 +10,7 @@ $submenu = 'manage_artcl'; ?>
         <div class="card-header bg-default text-dark py-2 px-4 d-flex justify-content-between align-items-center">
             <b>Article Tutorials</b>
             <!-- Button trigger modal -->
-            <button type="button" class="btn hor-grd btn-grd-primary btn-sm" data-toggle="modal"
-                data-target="#staticBackdrop">
+            <button type="button" class="btn hor-grd btn-grd-primary btn-sm" data-toggle="modal" data-target="#staticBackdrop">
                 <i class="fas fa-plus"></i> Add Article
             </button>
         </div>
@@ -51,14 +50,13 @@ $submenu = 'manage_artcl'; ?>
                                     <span class="badge badge-warning">Private</span>
                                 @endif
                             </td>
-                            <td> <img src="{{ asset('images/articles') . '/' . $item->image }}" alt="Thumbnail"
+                            <td> <img src="{{ asset('public/images/articles') . '/' . $item->image }}" alt="Thumbnail"
                                     style="width: 100px"> </td>
 
                             <td class="d-flex justify-content-center">
 
                                 <button type="button" class="btn btn-info mr-1 pt-1 pb-0 pl-1 pr-0" data-toggle="modal"
-                                    data-target="{{ '#staticBackdrop' . $item->id }}"><i
-                                        class="bi bi-eye"></i></button>
+                                    data-target="{{ '#staticBackdrop' . $item->id }}"><i class="bi bi-eye"></i></button>
 
                                 <a href=" {{ route('articles.edit', $item->id) }} "
                                     class="btn btn-primary mr-1 pt-1 pb-0 pl-1 pr-0"><i class="bi bi-pencil-square"></i></a>
@@ -80,12 +78,11 @@ $submenu = 'manage_artcl'; ?>
                                 <div class="modal-content card">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">{{ $item->title }}</h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <img src="{{ asset('images/articles') . '/' . $item->image }}" alt="Thumbnail"
+                                    <img src="{{ asset('public/images/articles') . '/' . $item->image }}" alt="Thumbnail"
                                         class="w-100">
                                     <div class="modal-body">
 
@@ -185,8 +182,8 @@ $submenu = 'manage_artcl'; ?>
                             </div>
                             <div class="form-group">
                                 <label for="article_description">Description</label>
-                                <textarea name="article_description" class="form-control @error('article_description') is-invalid @enderror summernote"
-                                    cols="30" rows="7"> {{ old('article_description') }} </textarea>
+                                <textarea name="article_description"
+                                    class="form-control @error('article_description') is-invalid @enderror summernote" cols="30" rows="7"> {{ old('article_description') }} </textarea>
                                 @error('article_description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -205,7 +202,8 @@ $submenu = 'manage_artcl'; ?>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="article_status" value="1">
+                                    <input type="checkbox" class="form-check-input" name="article_status"
+                                        value="1">
                                     Publish now
                                 </label>
                             </div>

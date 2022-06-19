@@ -43,7 +43,7 @@
                                     <!-- Start Blog post -->
                                     <div class="blog-post card">
                                         <div class="post-img">
-                                            <img src="{{ asset('images/articles') . '/' . $item->image }}"
+                                            <img src="{{ asset('public/images/articles') . '/' . $item->image }}"
                                                 class="img-responsive" alt="Blog image">
                                         </div>
                                         <div class="card-body">
@@ -97,7 +97,7 @@
                     <div class="media">
                         <div class="media-left">
                             <a href="{{ route('tutorials.view', $R1->id) }}">
-                                <img class="media-object" src="{{ asset('images/articles') . '/' . $R1->image }}"
+                                <img class="media-object" src="{{ asset('public/images/articles') . '/' . $R1->image }}"
                                     alt="...">
                             </a>
                         </div>
@@ -115,8 +115,8 @@
                     <div class="media my-3">
                         <div class="media-left">
                             <a href="{{ route('services.softwares') }}">
-                                <img class="media-object" src="{{ asset('images/thumbnails') . '/' . $R2->thumb }}"
-                                    alt="...">
+                                <img class="media-object"
+                                    src="{{ asset('public/images/thumbnails') . '/' . $R2->thumb }}" alt="...">
                             </a>
                         </div>
                         <div class="media-body ml-2">
@@ -133,8 +133,8 @@
                     <div class="media my-3">
                         <div class="media-left">
                             <a href="{{ route('services.designs') }}">
-                                <img class="media-object" src="{{ asset('images/thumbnails') . '/' . $R3->thumb }}"
-                                    alt="...">
+                                <img class="media-object"
+                                    src="{{ asset('public/images/thumbnails') . '/' . $R3->thumb }}" alt="...">
                             </a>
                         </div>
                         <div class="media-body ml-2">
@@ -150,8 +150,8 @@
                     <div class="media my-3">
                         <div class="media-left">
                             <a href="{{ route('tutorials.video') }}">
-                                <img class="media-object" src="{{ asset('images/thumbnails/video_tutorials.png') }}"
-                                    alt="...">
+                                <img class="media-object"
+                                    src="{{ asset('public/images/thumbnails/video_tutorials.png') }}" alt="...">
                             </a>
                         </div>
                         <div class="media-body ml-2">

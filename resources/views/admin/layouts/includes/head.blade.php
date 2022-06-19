@@ -10,20 +10,22 @@
         content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
     <meta name="author" content="codedthemes">
     <!-- Favicon icon -->
-    <link rel="icon" href="{{ asset('images/logos/TECH_CLOUD_Icon_dark.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('public/images/logos/TECH_CLOUD_Icon_dark.png') }}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('adm') }}/assets/css/bootstrap/css/bootstrap.min.css">
-    <!-- themify-icons line icon -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('adm') }}/assets/icon/themify-icons/themify-icons.css">
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('adm') }}/assets/icon/font-awesome/css/font-awesome.min.css">
+        href="{{ asset('public/adm') }}/assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('public/adm') }}/assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('public/adm') }}/assets/icon/font-awesome/css/font-awesome.min.css">
     <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('adm') }}/assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/adm') }}/assets/icon/icofont/css/icofont.css">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('adm') }}/assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('adm') }}/assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/adm') }}/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/adm') }}/assets/css/jquery.mCustomScrollbar.css">
     <!-- FontAwesome 5.15.3 CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -35,11 +37,12 @@
         integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('adm') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="{{ asset('adm') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="{{ asset('adm') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('public/adm') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="{{ asset('public/adm') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('public/adm') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('adm') }}/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="{{ asset('public/adm') }}/plugins/summernote/summernote-bs4.min.css">
 
 
     <style>

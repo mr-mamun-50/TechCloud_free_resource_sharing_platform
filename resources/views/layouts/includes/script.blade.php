@@ -4,17 +4,17 @@ integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRk
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-<script src="{{ asset('asset') }}/js/owl.carousel.min.js"></script>
-<script src="{{ asset('asset') }}/js/jquery.appear.js"></script>
-<script src="{{ asset('asset') }}/js/jquery.fitvids.js"></script>
-<script src="{{ asset('asset') }}/js/jquery.nicescroll.min.js"></script>
-<script src="{{ asset('asset') }}/js/lightbox.min.js"></script>
-<script src="{{ asset('asset') }}/js/count-to.js"></script>
-<script src="{{ asset('asset') }}/js/styleswitcher.js"></script>
+<script src="{{ asset('public/asset') }}/js/owl.carousel.min.js"></script>
+<script src="{{ asset('public/asset') }}/js/jquery.appear.js"></script>
+<script src="{{ asset('public/asset') }}/js/jquery.fitvids.js"></script>
+<script src="{{ asset('public/asset') }}/js/jquery.nicescroll.min.js"></script>
+<script src="{{ asset('public/asset') }}/js/lightbox.min.js"></script>
+<script src="{{ asset('public/asset') }}/js/count-to.js"></script>
+<script src="{{ asset('public/asset') }}/js/styleswitcher.js"></script>
 
-<script src="{{ asset('asset') }}/js/map.js"></script>
+<script src="{{ asset('public/asset') }}/js/map.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script src="{{ asset('asset') }}/js/script.js"></script>
+<script src="{{ asset('public/asset') }}/js/script.js"></script>
 
 <!-- Toastr js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
@@ -42,7 +42,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </script>
 
 <!-- Summernote -->
-<script src="{{ asset('adm') }}/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{ asset('public/adm') }}/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $('.summernote').summernote({
         placeholder: 'Enter text here...',

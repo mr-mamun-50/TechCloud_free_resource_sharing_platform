@@ -39,7 +39,7 @@ $team = DB::table('team')->get();
             <div class="row">
                 <div class="col-md-5">
                     <div class="about-img">
-                        <img src="{{ asset('images/homepage') . '/' . $about->image }}" class="img-responsive"
+                        <img src="{{ asset('public/images/homepage') . '/' . $about->image }}" class="img-responsive"
                             alt="About images">
                         <div class="head-text">
                             <p>{{ $about->qoi }}</p>
@@ -87,7 +87,7 @@ $team = DB::table('team')->get();
                 @foreach ($team as $member)
                     <div class="col-md-3 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
                         <div class="team-member">
-                            <img src="{{ asset('images/homepage') . '/' . $member->image }}" class="img-responsive"
+                            <img src="{{ asset('public/images/homepage') . '/' . $member->image }}" class="img-responsive"
                                 alt="">
                             <div class="team-details">
                                 <h4>{{ $member->name }}</h4>
@@ -169,7 +169,7 @@ $team = DB::table('team')->get();
                         @foreach ($team as $member)
                             <div class="testimonial-item">
                                 <p>{{ $member->quote }}</p>
-                                <img src="{{ asset('images/homepage') . '/' . $member->image }}"
+                                <img src="{{ asset('public/images/homepage') . '/' . $member->image }}"
                                     alt="Testimonial images">
                                 <h5>{{ $member->name }}</h5>
                                 <div class="desgnation">{{ $member->designation }}</div>
@@ -190,15 +190,15 @@ $team = DB::table('team')->get();
                 <div class="col-md-12">
                     <div class="client-box">
                         <ul class="client-list">
-                            <li><a href="#"><img src="{{ asset('asset') }}/images/clients/client1.png"
+                            <li><a href="#"><img src="{{ asset('public/asset') }}/images/clients/client1.png"
                                         class="img-responsive" alt="Clients Logo"></a></li>
-                            <li><a href="#"><img src="{{ asset('asset') }}/images/clients/client2.png"
+                            <li><a href="#"><img src="{{ asset('public/asset') }}/images/clients/client2.png"
                                         class="img-responsive" alt="Clients Logo"></a></li>
-                            <li><a href="#"><img src="{{ asset('asset') }}/images/clients/client3.png"
+                            <li><a href="#"><img src="{{ asset('public/asset') }}/images/clients/client3.png"
                                         class="img-responsive" alt="Clients Logo"></a></li>
-                            <li><a href="#"><img src="{{ asset('asset') }}/images/clients/client4.png"
+                            <li><a href="#"><img src="{{ asset('public/asset') }}/images/clients/client4.png"
                                         class="img-responsive" alt="Clients Logo"></a></li>
-                            <li><a href="#"><img src="{{ asset('asset') }}/images/clients/client5.png"
+                            <li><a href="#"><img src="{{ asset('public/asset') }}/images/clients/client5.png"
                                         class="img-responsive" alt="Clients Logo"></a></li>
                         </ul>
                     </div>

@@ -14,7 +14,7 @@
     <meta name="author" content="Shahriyar Ahmed">
 
     <!-- Favicon icon -->
-    <link rel="icon" href="{{ asset('images/logos/TECH_CLOUD_Icon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('public/images/logos/TECH_CLOUD_Icon.png') }}" type="image/x-icon">
 
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
@@ -29,24 +29,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="{{ asset('asset') }}/css/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="{{ asset('asset') }}/css/owl.theme.css" type="text/css">
-    <link rel="stylesheet" href="{{ asset('asset') }}/css/owl.transitions.css" type="text/css">
+    <link rel="stylesheet" href="{{ asset('public/asset') }}/css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="{{ asset('public/asset') }}/css/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="{{ asset('public/asset') }}/css/owl.transitions.css" type="text/css">
 
     <!-- Css3 Transitions Styles  -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset') }}/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/asset') }}/css/animate.css">
 
     <!-- Lightbox CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset') }}/css/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/asset') }}/css/lightbox.css">
 
     <!-- Sulfur CSS Styles  -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset') }}/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/asset') }}/css/style.css">
 
     <!-- Responsive CSS Style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('asset') }}/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/asset') }}/css/responsive.css">
 
 
-    <script src="{{ asset('asset') }}/js/modernizrr.js"></script>
+    <script src="{{ asset('public/asset') }}/js/modernizrr.js"></script>
 
     <!-- Google Fonts Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
 
     <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('adm') }}/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="{{ asset('public/adm') }}/plugins/summernote/summernote-bs4.min.css">
 
     <!-- Toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"

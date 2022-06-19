@@ -3,7 +3,7 @@
         <x-slot name="logo">
             <a href="/">
                 <h2 style="text-align: center; margin-bottom: 15px; font-size: 20px">Admin Login</h2>
-                <img class="" src="{{ asset('images/logos/TECH_CLOUD_Logo_dark.png') }}" alt="Theme-Logo"
+                <img class="" src="{{ asset('public/images/logos/TECH_CLOUD_Logo_dark.png') }}" alt="Theme-Logo"
                     style="height: 35px; width: 170px" />
                 {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
             </a>
@@ -22,8 +22,8 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-                    autofocus />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+                    required autofocus />
             </div>
 
             <!-- Password -->

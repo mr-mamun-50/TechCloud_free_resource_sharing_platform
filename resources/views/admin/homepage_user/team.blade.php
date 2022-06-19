@@ -10,8 +10,7 @@ $submenu = 'team'; ?>
         <div class="card-header bg-default text-dark py-2 px-4 d-flex justify-content-between align-items-center">
             <b>TechCloud Team</b>
             <!-- Button trigger modal -->
-            <button type="button" class="btn hor-grd btn-grd-primary btn-sm" data-toggle="modal"
-                data-target="#staticBackdrop">
+            <button type="button" class="btn hor-grd btn-grd-primary btn-sm" data-toggle="modal" data-target="#staticBackdrop">
                 <i class="fas fa-plus"></i> Add Member
             </button>
         </div>
@@ -33,7 +32,7 @@ $submenu = 'team'; ?>
                     @foreach ($team as $index => $item)
                         <tr>
                             <td>{{ ++$index }}</td>
-                            <td> <img src="{{ asset('images/homepage') . '/' . $item->image }}" alt="Photo"
+                            <td> <img src="{{ asset('public/images/homepage') . '/' . $item->image }}" alt="Photo"
                                     style="width: 100px"> </td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->designation }}</td>
@@ -73,8 +72,7 @@ $submenu = 'team'; ?>
                                 <div class="modal-content">
                                     <div class="modal-header bg-default text-dark rounded">
                                         <h5 class="modal-title" id="staticBackdropLabel">{{ $item->name }}</h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
@@ -163,8 +161,8 @@ $submenu = 'team'; ?>
 
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
-                                    value="{{ old('name') }}">
+                                <input class="form-control @error('name') is-invalid @enderror" type="text"
+                                    name="name" value="{{ old('name') }}">
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -183,8 +181,8 @@ $submenu = 'team'; ?>
                             </div>
                             <div class="form-group">
                                 <label for="image">Photo</label>
-                                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
-                                    value="{{ old('image') }}">
+                                <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                    name="image" value="{{ old('image') }}">
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

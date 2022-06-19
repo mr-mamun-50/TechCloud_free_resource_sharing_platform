@@ -165,10 +165,10 @@ $admins = DB::table('admins')
                                                     <td>{{ ++$index }}</td>
                                                     <td>
                                                         @if ($item->user_image)
-                                                            <img src="{{ asset('images/users') . '/' . $item->user_image }}"
+                                                            <img src="{{ asset('public/images/users') . '/' . $item->user_image }}"
                                                                 class="rounded-circle" alt="Thumbnail" style="width: 70px">
                                                         @else
-                                                            <img src="{{ asset('images/users/user-icon.png') }}"
+                                                            <img src="{{ asset('public/images/users/user-icon.png') }}"
                                                                 class="rounded-circle" alt="Thumbnail" style="width: 70px">
                                                         @endif
                                                     </td>
@@ -203,7 +203,7 @@ $admins = DB::table('admins')
                                                 <tr>
                                                     <td>{{ ++$index }}</td>
                                                     <td>
-                                                        <img src="{{ asset('images/admn/admin_pic.jpg') }}"
+                                                        <img src="{{ asset('public/images/admn/admin_pic.jpg') }}"
                                                             class="rounded-circle" alt="Thumbnail" style="width: 70px">
                                                     </td>
                                                     <td>{{ $item->name }}</td>

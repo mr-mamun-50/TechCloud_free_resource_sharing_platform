@@ -10,8 +10,7 @@ $submenu = ''; ?>
         <div class="card-header bg-default text-dark py-2 px-4 d-flex justify-content-between align-items-center">
             <b>All designs</b>
             <!-- Button trigger modal -->
-            <button type="button" class="btn hor-grd btn-grd-primary btn-sm" data-toggle="modal"
-                data-target="#staticBackdrop">
+            <button type="button" class="btn hor-grd btn-grd-primary btn-sm" data-toggle="modal" data-target="#staticBackdrop">
                 <i class="fas fa-plus"></i> Add design
             </button>
         </div>
@@ -32,7 +31,7 @@ $submenu = ''; ?>
                     @foreach ($designs as $index => $item)
                         <tr>
                             <td>{{ ++$index }}</td>
-                            <td> <img src="{{ asset('images/thumbnails') . '/' . $item->thumb }}" alt="Thumbnail"
+                            <td> <img src="{{ asset('public/images/thumbnails') . '/' . $item->thumb }}" alt="Thumbnail"
                                     style="width: 100px"> </td>
                             <td>{{ $item->name }}<br>
                                 @if ($item->status)
@@ -80,13 +79,12 @@ $submenu = ''; ?>
                                 <div class="modal-content card">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">{{ $item->name }}</h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <img src="{{ asset('images/thumbnails') . '/' . $item->thumb }}" alt="Thumbnail"
-                                        class="w-100">
+                                    <img src="{{ asset('public/images/thumbnails') . '/' . $item->thumb }}"
+                                        alt="Thumbnail" class="w-100">
                                     <div class="modal-body">
 
                                         <div class="text-muted d-flex justify-content-between">
@@ -127,7 +125,7 @@ $submenu = ''; ?>
                                         </div>
                                         <hr>
                                         <div>
-                                            <a href="{{ asset('designs') . '/' . $item->source_file }}"
+                                            <a href="{{ asset('public/designs') . '/' . $item->source_file }}"
                                                 download=""><button class="btn btn-grd-success hor-grd btn-block"><i
                                                         class="bi bi-download"></i> Download</button></a>
                                         </div>
@@ -145,8 +143,7 @@ $submenu = ''; ?>
                                 <div class="modal-content">
                                     <div class="modal-header bg-default text-dark rounded">
                                         <h5 class="modal-title" id="staticBackdropLabel">{{ $item->name }}</h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
@@ -186,13 +183,15 @@ $submenu = ''; ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="source_file">design File</label>
-                                                <input type="file" name="source_file" class="form-control" placeholder="">
+                                                <input type="file" name="source_file" class="form-control"
+                                                    placeholder="">
                                                 <input type="hidden" name="old_source_file"
                                                     value="{{ $item->source_file }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="c">Thumbnail</label>
-                                                <input type="file" name="thumb" class="form-control" placeholder="">
+                                                <input type="file" name="thumb" class="form-control"
+                                                    placeholder="">
                                                 <input type="hidden" name="old_thumb" value="{{ $item->thumb }}">
                                             </div>
                                             <div class="form-group">
@@ -201,13 +200,13 @@ $submenu = ''; ?>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tags">Tags</label>
-                                                <input class="form-control @error('tags') is-invalid @enderror" type="text"
-                                                    name="tags" value="{{ $item->tags }}">
+                                                <input class="form-control @error('tags') is-invalid @enderror"
+                                                    type="text" name="tags" value="{{ $item->tags }}">
                                             </div>
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" name="status" value="1"
-                                                        @if ($item->status) checked @endif>
+                                                    <input type="checkbox" class="form-check-input" name="status"
+                                                        value="1" @if ($item->status) checked @endif>
                                                     Publish now
                                                 </label>
                                             </div>
@@ -243,8 +242,8 @@ $submenu = ''; ?>
 
                             <div class="form-group">
                                 <label for="name">Title</label>
-                                <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
-                                    value="{{ old('name') }}">
+                                <input class="form-control @error('name') is-invalid @enderror" type="text"
+                                    name="name" value="{{ old('name') }}">
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -282,8 +281,8 @@ $submenu = ''; ?>
                             </div>
                             <div class="form-group">
                                 <label for="c">Thumbnail</label>
-                                <input type="file" name="thumb" class="form-control @error('thumb') is-invalid @enderror"
-                                    placeholder="">
+                                <input type="file" name="thumb"
+                                    class="form-control @error('thumb') is-invalid @enderror" placeholder="">
                                 @error('thumb')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -292,8 +291,8 @@ $submenu = ''; ?>
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea name="description" class="form-control @error('description') is-invalid @enderror summernote" cols="30"
-                                    rows="7">{{ old('description') }}</textarea>
+                                <textarea name="description" class="form-control @error('description') is-invalid @enderror summernote"
+                                    cols="30" rows="7">{{ old('description') }}</textarea>
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -302,8 +301,8 @@ $submenu = ''; ?>
                             </div>
                             <div class="form-group">
                                 <label for="tags">Tags</label>
-                                <input class="form-control @error('tags') is-invalid @enderror" type="text" name="tags"
-                                    value="{{ old('tags') }}">
+                                <input class="form-control @error('tags') is-invalid @enderror" type="text"
+                                    name="tags" value="{{ old('tags') }}">
                                 @error('tags')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

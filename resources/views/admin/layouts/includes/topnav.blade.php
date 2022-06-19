@@ -16,8 +16,8 @@
                 </div>
             </div>
             <a href="{{ route('admin.dashboard') }}" class="pl-1">
-                <img class="d-flex mr-auto" src="{{ asset('images/logos/TECH_CLOUD_Logo.png') }}" alt="Theme-Logo"
-                    style="height: 35px; width: 170px" />
+                <img class="d-flex mr-auto" src="{{ asset('public/images/logos/TECH_CLOUD_Logo.png') }}"
+                    alt="Theme-Logo" style="height: 35px; width: 170px" />
             </a>
             <a class="mobile-options">
                 <i class="ti-more"></i>
@@ -52,7 +52,7 @@
 
                 <li class="user-profile header-notification">
                     <a href="#!">
-                        <img src="{{ asset('images/admn/admin_pic.jpg') }}" class="img-radius border"
+                        <img src="{{ asset('public/images/admn/admin_pic.jpg') }}" class="img-radius border"
                             alt="User-Profile-Image">
                         <span>{{ Auth::guard('admin')->user()->name }}</span>
                         <i class="ti-angle-down"></i>

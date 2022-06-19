@@ -42,7 +42,7 @@
                             <tr>
                                 <td>
                                     <div class="media jumbotron py-5 px-4 d-flex align-items-center blog-post">
-                                        <img src="{{ asset('images/thumbnails') . '/' . $item->thumb }}"
+                                        <img src="{{ asset('public/images/thumbnails') . '/' . $item->thumb }}"
                                             class="mr-3 w-25" alt="...">
                                         <div class="media-body">
                                             <h5 class="mb-3">{{ $item->name }}</h5>
@@ -74,13 +74,12 @@
                                     <div class="modal-content card">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">{{ $item->name }}</h5>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <img src="{{ asset('images/thumbnails') . '/' . $item->thumb }}" alt="Thumbnail"
-                                            class="w-100">
+                                        <img src="{{ asset('public/images/thumbnails') . '/' . $item->thumb }}"
+                                            alt="Thumbnail" class="w-100">
                                         <div class="modal-body">
 
                                             <div class="text-muted d-flex justify-content-between">
@@ -122,7 +121,7 @@
                                             </div>
                                             <hr>
                                             <div>
-                                                <a href="{{ asset('designs') . '/' . $item->source_file }}"
+                                                <a href="{{ asset('public/designs') . '/' . $item->source_file }}"
                                                     download=""><button class="btn btn-success btn-block"><i
                                                             class="bi bi-download"></i> Download</button></a>
                                             </div>
@@ -156,7 +155,7 @@
                     <div class="media">
                         <div class="media-left">
                             <a href="{{ route('tutorials.view', $R1->id) }}">
-                                <img class="media-object" src="{{ asset('images/articles') . '/' . $R1->image }}"
+                                <img class="media-object" src="{{ asset('public/images/articles') . '/' . $R1->image }}"
                                     alt="...">
                             </a>
                         </div>
@@ -174,8 +173,8 @@
                     <div class="media my-3">
                         <div class="media-left">
                             <a href="{{ route('services.softwares') }}">
-                                <img class="media-object" src="{{ asset('images/thumbnails') . '/' . $R2->thumb }}"
-                                    alt="...">
+                                <img class="media-object"
+                                    src="{{ asset('public/images/thumbnails') . '/' . $R2->thumb }}" alt="...">
                             </a>
                         </div>
                         <div class="media-body ml-2">
@@ -192,8 +191,8 @@
                     <div class="media my-3">
                         <div class="media-left">
                             <a href="{{ route('services.designs') }}">
-                                <img class="media-object" src="{{ asset('images/thumbnails') . '/' . $R3->thumb }}"
-                                    alt="...">
+                                <img class="media-object"
+                                    src="{{ asset('public/images/thumbnails') . '/' . $R3->thumb }}" alt="...">
                             </a>
                         </div>
                         <div class="media-body ml-2">
@@ -209,8 +208,8 @@
                     <div class="media my-3">
                         <div class="media-left">
                             <a href="{{ route('tutorials.video') }}">
-                                <img class="media-object" src="{{ asset('images/thumbnails/video_tutorials.png') }}"
-                                    alt="...">
+                                <img class="media-object"
+                                    src="{{ asset('public/images/thumbnails/video_tutorials.png') }}" alt="...">
                             </a>
                         </div>
                         <div class="media-body ml-2">

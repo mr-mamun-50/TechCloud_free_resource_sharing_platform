@@ -38,8 +38,8 @@
                         <!-- Start Blog post -->
                         <div class="single-blog-post">
                             <div class="post-img">
-                                <img src="{{ asset('images/articles') . '/' . $article->image }}" class="img-responsive"
-                                    alt="Blog image">
+                                <img src="{{ asset('public/images/articles') . '/' . $article->image }}"
+                                    class="img-responsive" alt="Blog image">
                             </div>
                             <h1 class="post-title"><a href="#">{{ $article->title }}</a>
                             </h1>
@@ -52,7 +52,8 @@
                                     <li><i class="fas fa-tag"></i><a href="#">{{ $article->category_name }}</a></li>
                                     <li><i class="fa fa-tags"></i><a href="#">{{ $article->subcategory_name }}</a>
                                     </li>
-                                    <li><i class="fa fa-comments"></i><a href="#">{{ $cntcmt }} Comments</a></li>
+                                    <li><i class="fa fa-comments"></i><a href="#">{{ $cntcmt }} Comments</a>
+                                    </li>
                                 </ul>
                                 {{-- <ul class="pull-right">
                                     <li>font-size<i class="fa fa-minus-circle"></i><i class="fa fa-plus-circle"></i></li>
@@ -90,15 +91,16 @@
                                     <a href="#">
                                         @if ($article->username == 'M R Mamun')
                                             <img class="media-object rounded-circle"
-                                                src="{{ asset('images/admn/admin_pic.jpg') }}" alt="Author">
+                                                src="{{ asset('public/images/admn/admin_pic.jpg') }}" alt="Author">
                                         @else
                                             @if ($author->user_image != null)
                                                 <img class="media-object rounded-circle"
-                                                    src="{{ asset('images/users') . '/' . $author->user_image }}"
+                                                    src="{{ asset('public/images/users') . '/' . $author->user_image }}"
                                                     alt="Author">
                                             @else
                                                 <img class="media-object rounded-circle"
-                                                    src={{ asset('images/users/user-icon.png') }}"" alt="Author">
+                                                    src={{ asset('public/images/users/user-icon.png') }}""
+                                                    alt="Author">
                                             @endif
                                         @endif
                                     </a>
@@ -122,10 +124,11 @@
                                         <div class="comment-box clearfix py-1">
                                             <div class="avatar">
                                                 @if ($item->user_image != null)
-                                                    <img src="{{ asset('images/users') . '/' . $item->user_image }}"
+                                                    <img src="{{ asset('public/images/users') . '/' . $item->user_image }}"
                                                         alt="User">
                                                 @else
-                                                    <img src="{{ asset('images/users/user-icon.png') }}" alt="User">
+                                                    <img src="{{ asset('public/images/users/user-icon.png') }}"
+                                                        alt="User">
                                                 @endif
                                             </div>
                                             <div class="comment-content align-self-center">
@@ -192,7 +195,8 @@
                                 <div class="media-left">
                                     <a href="{{ route('tutorials.view', $R1->id) }}">
                                         <img class="media-object"
-                                            src="{{ asset('images/articles') . '/' . $R1->image }}" alt="...">
+                                            src="{{ asset('public/images/articles') . '/' . $R1->image }}"
+                                            alt="...">
                                     </a>
                                 </div>
                                 <div class="media-body ml-2">
@@ -210,7 +214,8 @@
                                 <div class="media-left">
                                     <a href="{{ route('services.softwares') }}">
                                         <img class="media-object"
-                                            src="{{ asset('images/thumbnails') . '/' . $R2->thumb }}" alt="...">
+                                            src="{{ asset('public/images/thumbnails') . '/' . $R2->thumb }}"
+                                            alt="...">
                                     </a>
                                 </div>
                                 <div class="media-body ml-2">
@@ -228,7 +233,8 @@
                                 <div class="media-left">
                                     <a href="{{ route('services.designs') }}">
                                         <img class="media-object"
-                                            src="{{ asset('images/thumbnails') . '/' . $R3->thumb }}" alt="...">
+                                            src="{{ asset('public/images/thumbnails') . '/' . $R3->thumb }}"
+                                            alt="...">
                                     </a>
                                 </div>
                                 <div class="media-body ml-2">
@@ -246,7 +252,8 @@
                                 <div class="media-left">
                                     <a href="{{ route('tutorials.video') }}">
                                         <img class="media-object"
-                                            src="{{ asset('images/thumbnails/video_tutorials.png') }}" alt="...">
+                                            src="{{ asset('public/images/thumbnails/video_tutorials.png') }}"
+                                            alt="...">
                                     </a>
                                 </div>
                                 <div class="media-body ml-2">

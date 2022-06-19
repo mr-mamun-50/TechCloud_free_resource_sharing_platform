@@ -56,7 +56,7 @@
         <div class="container">
 
             <a class="navbar-brand" href="{{ url('/') }}"><img
-                    src="{{ asset('images/logos/TECH_CLOUD_Logo.png') }}" alt="TechCloud"
+                    src="{{ asset('public/images/logos/TECH_CLOUD_Logo.png') }}" alt="TechCloud"
                     style="height: 35px; width: 170px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,8 +84,7 @@
                             Softwares</a>
                     </li>
                     <li class="nav-item mr-2 @if ($nav == 'Designs') active @endif">
-                        <a class="nav-link" href="{{ route('services.designs') }}"><i
-                                class="bi bi-bezier"></i>
+                        <a class="nav-link" href="{{ route('services.designs') }}"><i class="bi bi-bezier"></i>
                             Designs</a>
                     </li>
                     <li class="nav-item dropdown mr-2 @if ($nav == 'Tutorials') active @endif">
@@ -104,10 +103,11 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-expanded="false">
                                     @if (Auth::user()->user_image)
-                                        <img src="{{ asset('images/users') . '/' . Auth::user()->user_image }}" alt="user"
-                                            class="border" style="height: 35px; width: 35px; border-radius: 50%">
+                                        <img src="{{ asset('public/images/users') . '/' . Auth::user()->user_image }}"
+                                            alt="user" class="border"
+                                            style="height: 35px; width: 35px; border-radius: 50%">
                                     @else
-                                        <img src="{{ asset('images/users/user-icon.png') }}" alt="user"
+                                        <img src="{{ asset('public/images/users/user-icon.png') }}" alt="user"
                                             class="border" style="height: 35px; width: 35px; border-radius: 50%">
                                     @endif
                                 </a>
