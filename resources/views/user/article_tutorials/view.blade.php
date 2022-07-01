@@ -147,7 +147,7 @@
                                 {{ $comment->links('pagination::bootstrap-5') }}
                             </ol>
 
-                            <!-- Start Respond Form -->
+                            <!-- Start comment Form -->
                             <div id="respond">
                                 <h2 class="respond-title">Leave a comment</h2>
 

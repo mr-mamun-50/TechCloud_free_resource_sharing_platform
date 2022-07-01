@@ -75,7 +75,7 @@ class TutorialController extends Controller
 
         DB::table('article_comments')->insert($data);
 
-        $notify = ['message'=>'New article successfully added!', 'alert-type'=>'success'];
+        $notify = ['message'=>'Commented', 'alert-type'=>'success'];
         return redirect()->back()->with($notify);
     }
 
