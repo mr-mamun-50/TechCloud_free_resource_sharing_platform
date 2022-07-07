@@ -91,6 +91,9 @@ h6 {
     background: linear-gradient(to right, #1f8ceb, #5edfff);
     /* background: linear-gradient(to right, #1f8ceb, #ffa300); */
 }
+.navbar .modal .modal-header {
+    background: linear-gradient(to right, #1f8ceb, #5edfff);
+}
 
 nav ul li a i {
     color: #5edfff;
