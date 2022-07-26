@@ -2,7 +2,8 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img class="" src="{{ asset('public/images/logos/TECH_CLOUD_Logo_dark.png') }}" alt="Theme-Logo"
+                    style="height: 40px;" />
             </a>
         </x-slot>
 
